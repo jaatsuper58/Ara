@@ -83,7 +83,20 @@ jobs:
         with:
           api-level: 34
           arch: x86_64
-          script: cd android && ./gradlew :core-database:connectedDebugAndroidTest --stacktrace 2>&1 | tee instrumented.log; exit ${PIPESTATUS[0]}
+          script: |
+            cd android
+            set -o pipefail
+            ./gradlew :core-database:connectedDebugAndroidTest --stacktrace 2>&1 | tee instrumented.log
+            echo ${PIPESTATUS[0]} > "$GITHUB_WORKSPACE/instrumented_exit_code"
+            # Always exit 0 here: emulator-console shutdown flakiness must not
+            # mask the real test verdict, which the next step reports.
+            exit 0
+
+      - name: Report instrumented test result
+        run: |
+          CODE=$(cat "$GITHUB_WORKSPACE/instrumented_exit_code" 2>/dev/null || echo 1)
+          echo "gradle exit code: $CODE"
+          exit "$CODE"
 
       - name: Push instrumented log to ci-logs branch
         if: failure()
