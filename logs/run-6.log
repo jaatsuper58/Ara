@@ -1,0 +1,810 @@
+Downloading https://services.gradle.org/distributions/gradle-8.10.2-bin.zip
+.............10%.............20%.............30%.............40%.............50%.............60%.............70%.............80%.............90%.............100%
+
+Welcome to Gradle 8.10.2!
+
+Here are the highlights of this release:
+ - Support for Java 23
+ - Faster configuration cache
+ - Better configuration cache reports
+
+For more details see https://docs.gradle.org/8.10.2/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+Calculating task graph as no cached configuration is available for tasks: lintDebug testDebugUnitTest assembleDebug
+> Task :feature-chat:preBuild UP-TO-DATE
+> Task :core-common:preBuild UP-TO-DATE
+> Task :core-common:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core-crypto:preBuild UP-TO-DATE
+> Task :core-crypto:preDebugBuild UP-TO-DATE
+> Task :core-crypto:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :feature-chat:preDebugBuild UP-TO-DATE
+> Task :core-common:preDebugBuild UP-TO-DATE
+> Task :core-common:generateDebugResValues
+> Task :core-crypto:generateDebugResValues
+> Task :core-crypto:generateDebugResources
+> Task :core-common:generateDebugResources
+> Task :core-common:javaPreCompileDebug
+> Task :feature-chat:mergeDebugJniLibFolders
+> Task :feature-chat:mergeDebugNativeLibs NO-SOURCE
+> Task :feature-chat:stripDebugDebugSymbols NO-SOURCE
+> Task :core-crypto:packageDebugResources
+> Task :core-common:packageDebugResources
+> Task :feature-chat:copyDebugJniLibsProjectAndLocalJars
+> Task :core-database:preBuild UP-TO-DATE
+> Task :core-database:preDebugBuild UP-TO-DATE
+> Task :core-database:generateDebugResValues FROM-CACHE
+> Task :core-database:generateDebugResources FROM-CACHE
+> Task :core-database:packageDebugResources
+> Task :core-crypto:javaPreCompileDebug
+> Task :core-database:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core-crypto:parseDebugLocalResources
+> Task :core-database:parseDebugLocalResources
+> Task :core-common:parseDebugLocalResources
+> Task :core-database:javaPreCompileDebug
+> Task :core-network:preBuild UP-TO-DATE
+> Task :core-network:preDebugBuild UP-TO-DATE
+> Task :core-network:generateDebugResValues FROM-CACHE
+> Task :core-database:generateDebugRFile
+> Task :core-network:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core-common:generateDebugRFile
+> Task :core-crypto:generateDebugRFile
+> Task :core-network:generateDebugResources FROM-CACHE
+> Task :core-network:javaPreCompileDebug FROM-CACHE
+> Task :core-ui:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core-network:packageDebugResources
+> Task :core-ui:preBuild UP-TO-DATE
+> Task :core-ui:preDebugBuild UP-TO-DATE
+> Task :core-network:parseDebugLocalResources FROM-CACHE
+> Task :core-ui:generateDebugResValues FROM-CACHE
+> Task :core-network:generateDebugBuildConfig
+> Task :core-ui:generateDebugResources FROM-CACHE
+> Task :core-network:generateDebugRFile
+> Task :feature-chat:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :feature-chat:generateDebugResValues FROM-CACHE
+> Task :core-ui:javaPreCompileDebug FROM-CACHE
+> Task :feature-chat:generateDebugResources FROM-CACHE
+> Task :feature-chat:javaPreCompileDebug FROM-CACHE
+> Task :feature-chat:extractDeepLinksForAarDebug
+> Task :core-ui:packageDebugResources
+> Task :core-ui:parseDebugLocalResources FROM-CACHE
+> Task :feature-chat:packageDebugResources
+> Task :feature-chat:parseDebugLocalResources FROM-CACHE
+> Task :feature-chat:mergeDebugShaders
+> Task :core-ui:generateDebugRFile
+> Task :feature-chat:compileDebugShaders NO-SOURCE
+> Task :feature-chat:generateDebugAssets UP-TO-DATE
+> Task :feature-chat:prepareDebugArtProfile
+> Task :feature-chat:generateDebugRFile
+> Task :feature-chat:packageDebugAssets
+> Task :feature-chat:prepareLintJarForPublish
+> Task :feature-calls:preBuild UP-TO-DATE
+> Task :feature-calls:preDebugBuild UP-TO-DATE
+> Task :feature-chat:writeDebugAarMetadata
+> Task :feature-calls:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :feature-calls:generateDebugResValues FROM-CACHE
+> Task :feature-calls:mergeDebugJniLibFolders
+> Task :feature-calls:mergeDebugNativeLibs NO-SOURCE
+> Task :feature-calls:stripDebugDebugSymbols NO-SOURCE
+> Task :feature-calls:generateDebugResources FROM-CACHE
+> Task :feature-calls:copyDebugJniLibsProjectAndLocalJars
+> Task :feature-calls:extractDeepLinksForAarDebug FROM-CACHE
+> Task :feature-calls:javaPreCompileDebug FROM-CACHE
+> Task :feature-calls:packageDebugResources
+> Task :feature-calls:parseDebugLocalResources FROM-CACHE
+> Task :feature-calls:mergeDebugShaders
+> Task :feature-calls:compileDebugShaders NO-SOURCE
+> Task :feature-calls:generateDebugAssets UP-TO-DATE
+> Task :feature-calls:packageDebugAssets
+> Task :feature-calls:prepareDebugArtProfile
+> Task :feature-calls:prepareLintJarForPublish
+> Task :feature-calls:generateDebugRFile
+> Task :feature-calls:writeDebugAarMetadata
+> Task :feature-contacts:preBuild UP-TO-DATE
+> Task :feature-contacts:preDebugBuild UP-TO-DATE
+> Task :feature-contacts:mergeDebugJniLibFolders
+> Task :feature-contacts:mergeDebugNativeLibs NO-SOURCE
+> Task :feature-contacts:stripDebugDebugSymbols NO-SOURCE
+> Task :feature-contacts:copyDebugJniLibsProjectAndLocalJars
+> Task :feature-contacts:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :feature-contacts:generateDebugResValues FROM-CACHE
+> Task :feature-contacts:generateDebugResources FROM-CACHE
+> Task :feature-contacts:packageDebugResources
+> Task :feature-contacts:parseDebugLocalResources FROM-CACHE
+> Task :feature-contacts:generateDebugRFile
+> Task :feature-contacts:extractDeepLinksForAarDebug FROM-CACHE
+> Task :feature-contacts:javaPreCompileDebug FROM-CACHE
+> Task :feature-contacts:mergeDebugShaders
+> Task :feature-contacts:compileDebugShaders NO-SOURCE
+> Task :feature-contacts:generateDebugAssets UP-TO-DATE
+> Task :feature-contacts:packageDebugAssets
+> Task :feature-contacts:prepareDebugArtProfile
+> Task :feature-contacts:prepareLintJarForPublish
+> Task :feature-calls:processDebugManifest
+> Task :feature-chat:processDebugManifest
+> Task :feature-settings:preBuild UP-TO-DATE
+> Task :feature-settings:preDebugBuild UP-TO-DATE
+> Task :feature-contacts:processDebugManifest
+> Task :feature-settings:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :feature-settings:generateDebugResValues FROM-CACHE
+> Task :feature-settings:mergeDebugJniLibFolders
+> Task :feature-settings:mergeDebugNativeLibs NO-SOURCE
+> Task :feature-settings:generateDebugResources FROM-CACHE
+> Task :feature-settings:stripDebugDebugSymbols NO-SOURCE
+> Task :feature-contacts:writeDebugAarMetadata
+> Task :feature-settings:extractDeepLinksForAarDebug FROM-CACHE
+> Task :feature-settings:javaPreCompileDebug FROM-CACHE
+> Task :feature-settings:packageDebugResources
+> Task :feature-settings:copyDebugJniLibsProjectAndLocalJars
+> Task :feature-settings:prepareDebugArtProfile
+> Task :feature-settings:parseDebugLocalResources FROM-CACHE
+> Task :feature-settings:mergeDebugShaders
+> Task :feature-settings:compileDebugShaders NO-SOURCE
+> Task :feature-settings:generateDebugAssets UP-TO-DATE
+> Task :feature-settings:prepareLintJarForPublish
+> Task :feature-settings:packageDebugAssets
+> Task :feature-settings:generateDebugRFile
+> Task :feature-settings:processDebugManifest
+> Task :core-ui:extractDeepLinksForAarDebug FROM-CACHE
+> Task :feature-settings:writeDebugAarMetadata
+> Task :core-ui:prepareDebugArtProfile
+> Task :core-ui:mergeDebugShaders
+> Task :core-ui:compileDebugShaders NO-SOURCE
+> Task :core-ui:generateDebugAssets UP-TO-DATE
+> Task :core-ui:mergeDebugJniLibFolders
+> Task :core-ui:mergeDebugNativeLibs NO-SOURCE
+> Task :core-ui:stripDebugDebugSymbols NO-SOURCE
+> Task :core-ui:prepareLintJarForPublish
+> Task :core-ui:packageDebugAssets
+> Task :core-ui:copyDebugJniLibsProjectAndLocalJars
+> Task :core-ui:writeDebugAarMetadata
+> Task :core-database:extractDeepLinksForAarDebug FROM-CACHE
+> Task :core-database:mergeDebugJniLibFolders
+> Task :core-database:mergeDebugNativeLibs NO-SOURCE
+> Task :core-database:stripDebugDebugSymbols NO-SOURCE
+> Task :core-database:mergeDebugShaders
+> Task :core-database:compileDebugShaders NO-SOURCE
+> Task :core-database:generateDebugAssets UP-TO-DATE
+> Task :core-ui:processDebugManifest
+> Task :core-database:prepareDebugArtProfile
+> Task :core-database:packageDebugAssets
+> Task :core-database:prepareLintJarForPublish
+> Task :core-database:copyDebugJniLibsProjectAndLocalJars
+> Task :core-database:processDebugManifest
+> Task :core-database:writeDebugAarMetadata
+> Task :core-crypto:extractDeepLinksForAarDebug FROM-CACHE
+> Task :core-crypto:mergeDebugJniLibFolders
+> Task :core-crypto:mergeDebugNativeLibs NO-SOURCE
+> Task :core-crypto:prepareDebugArtProfile
+> Task :core-crypto:stripDebugDebugSymbols NO-SOURCE
+> Task :core-crypto:prepareLintJarForPublish
+> Task :core-crypto:mergeDebugShaders
+> Task :core-crypto:compileDebugShaders NO-SOURCE
+> Task :core-crypto:generateDebugAssets UP-TO-DATE
+> Task :core-crypto:copyDebugJniLibsProjectAndLocalJars
+> Task :core-crypto:packageDebugAssets
+> Task :core-crypto:processDebugManifest
+> Task :core-crypto:writeDebugAarMetadata
+> Task :core-network:extractDeepLinksForAarDebug FROM-CACHE
+> Task :core-network:mergeDebugShaders
+> Task :core-network:compileDebugShaders NO-SOURCE
+> Task :core-network:generateDebugAssets UP-TO-DATE
+> Task :core-network:prepareDebugArtProfile
+> Task :core-network:mergeDebugJniLibFolders
+> Task :core-network:mergeDebugNativeLibs NO-SOURCE
+> Task :core-network:prepareLintJarForPublish
+> Task :core-network:stripDebugDebugSymbols NO-SOURCE
+> Task :core-network:packageDebugAssets
+> Task :core-network:copyDebugJniLibsProjectAndLocalJars
+> Task :core-network:writeDebugAarMetadata
+> Task :core-common:extractDeepLinksForAarDebug FROM-CACHE
+> Task :core-network:processDebugManifest
+> Task :core-common:prepareDebugArtProfile
+> Task :core-common:mergeDebugShaders
+> Task :core-common:compileDebugShaders NO-SOURCE
+> Task :core-common:mergeDebugJniLibFolders
+> Task :core-common:generateDebugAssets UP-TO-DATE
+> Task :core-common:mergeDebugNativeLibs NO-SOURCE
+> Task :core-common:stripDebugDebugSymbols NO-SOURCE
+> Task :core-common:packageDebugAssets
+> Task :core-common:prepareLintJarForPublish
+> Task :core-common:copyDebugJniLibsProjectAndLocalJars
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:generateDebugResValues FROM-CACHE
+> Task :core-common:writeDebugAarMetadata
+> Task :core-common:processDebugManifest
+> Task :app:generateDebugResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:checkDebugAarMetadata
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :core-common:extractDeepLinksDebug FROM-CACHE
+> Task :core-crypto:extractDeepLinksDebug FROM-CACHE
+> Task :core-database:extractDeepLinksDebug FROM-CACHE
+> Task :core-network:extractDeepLinksDebug FROM-CACHE
+> Task :core-ui:extractDeepLinksDebug FROM-CACHE
+> Task :feature-calls:extractDeepLinksDebug FROM-CACHE
+> Task :feature-chat:extractDeepLinksDebug FROM-CACHE
+> Task :feature-contacts:extractDeepLinksDebug FROM-CACHE
+> Task :feature-settings:extractDeepLinksDebug FROM-CACHE
+> Task :app:packageDebugResources
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :core-common:compileDebugLibraryResources
+> Task :core-crypto:compileDebugLibraryResources FROM-CACHE
+> Task :core-database:compileDebugLibraryResources FROM-CACHE
+> Task :core-network:compileDebugLibraryResources FROM-CACHE
+> Task :core-ui:compileDebugLibraryResources FROM-CACHE
+> Task :feature-calls:compileDebugLibraryResources FROM-CACHE
+> Task :feature-chat:compileDebugLibraryResources FROM-CACHE
+> Task :feature-contacts:compileDebugLibraryResources FROM-CACHE
+> Task :feature-settings:compileDebugLibraryResources FROM-CACHE
+> Task :app:processDebugManifest
+> Task :app:processDebugManifestForPackage
+> Task :app:preDebugAndroidTestBuild SKIPPED
+> Task :app:generateDebugAndroidTestResValues FROM-CACHE
+> Task :core-common:writeDebugLintModelMetadata
+> Task :core-crypto:writeDebugLintModelMetadata
+> Task :core-database:writeDebugLintModelMetadata
+> Task :app:javaPreCompileDebug
+> Task :core-network:writeDebugLintModelMetadata
+> Task :core-ui:writeDebugLintModelMetadata
+> Task :feature-chat:writeDebugLintModelMetadata
+> Task :feature-calls:writeDebugLintModelMetadata
+> Task :feature-settings:writeDebugLintModelMetadata
+> Task :feature-contacts:writeDebugLintModelMetadata
+> Task :app:extractProguardFiles
+> Task :core-common:extractProguardFiles
+> Task :core-crypto:extractProguardFiles
+> Task :core-database:extractProguardFiles
+> Task :core-ui:extractProguardFiles
+> Task :feature-calls:extractProguardFiles
+> Task :core-network:extractProguardFiles
+> Task :feature-chat:extractProguardFiles
+> Task :feature-contacts:extractProguardFiles
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :core-common:preDebugAndroidTestBuild UP-TO-DATE
+> Task :feature-settings:extractProguardFiles
+> Task :core-common:preDebugUnitTestBuild UP-TO-DATE
+> Task :core-crypto:preDebugAndroidTestBuild UP-TO-DATE
+> Task :core-crypto:generateDebugAndroidTestResValues FROM-CACHE
+> Task :core-common:generateDebugAndroidTestResValues FROM-CACHE
+> Task :core-crypto:preDebugUnitTestBuild UP-TO-DATE
+> Task :core-database:preDebugAndroidTestBuild UP-TO-DATE
+> Task :core-database:preDebugUnitTestBuild UP-TO-DATE
+> Task :core-network:preDebugAndroidTestBuild UP-TO-DATE
+> Task :core-network:generateDebugAndroidTestResValues FROM-CACHE
+> Task :core-network:preDebugUnitTestBuild UP-TO-DATE
+> Task :core-ui:preDebugAndroidTestBuild UP-TO-DATE
+> Task :core-database:generateDebugAndroidTestResValues FROM-CACHE
+> Task :core-ui:preDebugUnitTestBuild UP-TO-DATE
+> Task :feature-calls:preDebugAndroidTestBuild UP-TO-DATE
+> Task :core-ui:generateDebugAndroidTestResValues FROM-CACHE
+> Task :feature-calls:preDebugUnitTestBuild UP-TO-DATE
+> Task :feature-chat:preDebugAndroidTestBuild UP-TO-DATE
+> Task :feature-calls:generateDebugAndroidTestResValues FROM-CACHE
+> Task :feature-chat:preDebugUnitTestBuild UP-TO-DATE
+> Task :feature-contacts:preDebugAndroidTestBuild UP-TO-DATE
+> Task :feature-chat:generateDebugAndroidTestResValues FROM-CACHE
+> Task :feature-contacts:preDebugUnitTestBuild UP-TO-DATE
+> Task :feature-settings:preDebugAndroidTestBuild UP-TO-DATE
+> Task :feature-settings:generateDebugAndroidTestResValues FROM-CACHE
+> Task :feature-contacts:generateDebugAndroidTestResValues FROM-CACHE
+> Task :feature-settings:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:javaPreCompileDebugUnitTest FROM-CACHE
+> Task :core-common:javaPreCompileDebugUnitTest FROM-CACHE
+> Task :core-common:generateDebugUnitTestStubRFile
+> Task :core-crypto:javaPreCompileDebugUnitTest FROM-CACHE
+> Task :core-crypto:generateDebugUnitTestStubRFile
+> Task :core-database:javaPreCompileDebugUnitTest FROM-CACHE
+> Task :core-network:generateDebugUnitTestStubRFile
+> Task :core-database:generateDebugUnitTestStubRFile
+> Task :core-network:javaPreCompileDebugUnitTest FROM-CACHE
+> Task :core-ui:javaPreCompileDebugUnitTest FROM-CACHE
+> Task :core-ui:generateDebugUnitTestStubRFile
+> Task :feature-calls:javaPreCompileDebugUnitTest FROM-CACHE
+> Task :feature-calls:generateDebugUnitTestStubRFile
+> Task :feature-chat:javaPreCompileDebugUnitTest FROM-CACHE
+> Task :feature-chat:generateDebugUnitTestStubRFile
+> Task :feature-contacts:javaPreCompileDebugUnitTest FROM-CACHE
+> Task :feature-contacts:generateDebugUnitTestStubRFile
+> Task :feature-settings:javaPreCompileDebugUnitTest FROM-CACHE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :feature-settings:generateDebugUnitTestStubRFile
+> Task :app:desugarDebugFileDependencies
+> Task :app:mergeDebugResources
+> Task :app:mergeDebugJniLibFolders
+> Task :core-common:copyDebugJniLibsProjectOnly
+> Task :core-crypto:copyDebugJniLibsProjectOnly
+> Task :core-database:copyDebugJniLibsProjectOnly
+> Task :core-network:copyDebugJniLibsProjectOnly
+> Task :core-ui:copyDebugJniLibsProjectOnly
+> Task :feature-calls:copyDebugJniLibsProjectOnly
+> Task :feature-chat:copyDebugJniLibsProjectOnly
+> Task :feature-contacts:copyDebugJniLibsProjectOnly
+> Task :feature-settings:copyDebugJniLibsProjectOnly
+> Task :app:checkDebugDuplicateClasses
+> Task :core-common:compileDebugKotlin
+> Task :core-common:compileDebugJavaWithJavac NO-SOURCE
+> Task :core-common:bundleLibCompileToJarDebug
+> Task :app:processDebugResources
+> Task :app:mergeDebugNativeLibs
+> Task :app:mergeExtDexDebug
+> Task :core-common:bundleLibRuntimeToJarDebug
+> Task :core-common:extractDebugAnnotations
+> Task :core-common:mergeDebugGeneratedProguardFiles
+
+> Task :core-common:mergeDebugConsumerProguardFiles
+Supplied consumer proguard configuration does not exist: /home/runner/work/Ara/Ara/android/core-common/consumer-rules.pro
+
+> Task :core-common:processDebugJavaRes
+> Task :core-common:mergeDebugJavaResource
+> Task :core-common:syncDebugLibJars
+> Task :core-common:bundleDebugLocalLintAar
+> Task :core-common:createFullJarDebug
+> Task :core-ui:compileDebugKotlin
+> Task :core-ui:compileDebugJavaWithJavac NO-SOURCE
+> Task :core-ui:bundleLibCompileToJarDebug
+> Task :core-ui:bundleLibRuntimeToJarDebug
+> Task :core-ui:extractDebugAnnotations
+> Task :core-ui:mergeDebugGeneratedProguardFiles
+
+> Task :core-ui:mergeDebugConsumerProguardFiles
+Supplied consumer proguard configuration does not exist: /home/runner/work/Ara/Ara/android/core-ui/consumer-rules.pro
+
+> Task :core-ui:processDebugJavaRes
+> Task :core-ui:mergeDebugJavaResource
+> Task :core-ui:syncDebugLibJars
+> Task :core-ui:bundleDebugLocalLintAar
+> Task :core-ui:createFullJarDebug
+> Task :core-crypto:kspDebugKotlin
+
+> Task :core-crypto:compileDebugKotlin FAILED
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:3:28 Unresolved reference 'keys'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:4:28 Unresolved reference 'keys'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:5:28 Unresolved reference 'keys'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:6:28 Unresolved reference 'keys'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:52:38 Unresolved reference 'IdentityKeyPair'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:52:56 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:52:56 Not enough information to infer type argument for 'T'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:52:72 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:53:15 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:53:15 Not enough information to infer type argument for 'T'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:53:24 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:55:28 Unresolved reference 'IdentityKeyPair'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:61:49 Unresolved reference 'SignedPreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:61:64 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:61:64 Not enough information to infer type argument for 'T'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:61:80 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:62:15 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:62:15 Not enough information to infer type argument for 'T'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:62:24 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:70:48 Unresolved reference 'SignedPreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:70:63 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:70:63 Not enough information to infer type argument for 'T'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:70:79 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:71:15 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:71:15 Not enough information to infer type argument for 'T'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:71:24 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:78:53 Unresolved reference 'OneTimePreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:80:41 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:80:41 Unresolved reference. None of the following candidates is applicable because of a receiver type mismatch:
+fun <T> Collection<T>.toMutableList(): MutableList<T>
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:81:48 Unresolved reference 'id'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:82:17 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:82:17 Not enough information to infer type argument for 'T'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:82:27 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:82:32 Unresolved reference 'id'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:90:57 Return type of 'addOneTimePreKeys' is not a subtype of the return type of the overridden member 'suspend fun addOneTimePreKeys(count: Int): List<ERROR CLASS: Symbol not found for OneTimePreKey>' defined in 'com/ara/core/crypto/store/IdentityKeyStore'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:90:62 Unresolved reference 'OneTimePreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:90:79 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:90:79 Not enough information to infer type argument for 'T'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:90:95 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:91:15 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:91:15 Not enough information to infer type argument for 'T'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:91:24 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:92:41 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:92:41 Unresolved reference. None of the following candidates is applicable because of a receiver type mismatch:
+fun <T> Collection<T>.toMutableList(): MutableList<T>
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:93:31 Overload resolution ambiguity between candidates:
+fun <T, R : Comparable<R>> Iterable<T>.maxOfOrNull(selector: (T) -> R): R?
+fun <T> Iterable<T>.maxOfOrNull(selector: (T) -> Double): Double?
+fun <T> Iterable<T>.maxOfOrNull(selector: (T) -> Float): Float?
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:93:43 Unresolved reference 'id'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:93:45 Unresolved reference 'it'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:94:41 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:94:45 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:96:17 Unresolved reference 'OneTimePreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:108:47 Return type of 'allOneTimePreKeys' is not a subtype of the return type of the overridden member 'suspend fun allOneTimePreKeys(): List<ERROR CLASS: Symbol not found for OneTimePreKey>' defined in 'com/ara/core/crypto/store/IdentityKeyStore'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:108:52 Unresolved reference 'OneTimePreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:111:46 Unresolved reference 'KeyBundle'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:115:16 Unresolved reference 'KeyBundle'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:117:39 Unresolved reference 'x25519Public'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:118:40 Unresolved reference 'ed25519Public'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:119:34 Unresolved reference 'id'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:120:32 Unresolved reference 'publicKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:121:41 Unresolved reference 'signature'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:122:36 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:122:36 Unresolved reference. None of the following candidates is applicable because of a receiver type mismatch:
+fun <T> List<T>.firstOrNull(): T?
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:122:51 Unresolved reference 'id'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:123:34 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:123:34 Unresolved reference. None of the following candidates is applicable because of a receiver type mismatch:
+fun <T> List<T>.firstOrNull(): T?
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:123:49 Unresolved reference 'publicKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:128:49 Unresolved reference 'OneTimePreKeyUpload'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:129:29 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:129:29 Unresolved reference. None of the following candidates is applicable because of a receiver type mismatch:
+fun <T, R> Iterable<T>.map(transform: (T) -> R): List<R>
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:129:33 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:130:13 Unresolved reference 'OneTimePreKeyUpload'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:130:41 Unresolved reference 'id'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:130:60 Unresolved reference 'publicKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:133:54 Unresolved reference 'IdentityKeyPair'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:133:81 Unresolved reference 'SignedPreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:136:53 Unresolved reference 'ed25519Private'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:137:16 Unresolved reference 'SignedPreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:148:41 Unresolved reference 'OneTimePreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:149:60 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:149:60 Not enough information to infer type argument for 'T'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:152:25 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:152:29 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:152:31 Unresolved reference 'OneTimePreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:155:44 Unresolved reference 'OneTimePreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:157:34 Argument type mismatch: actual type is 'kotlin.collections.List<R>', but 'kotlin.collections.List<com.ara.core.crypto.keystore.AraKeyManager.OneTimeDto>' was expected.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:157:39 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:157:39 Unresolved reference. None of the following candidates is applicable because of a receiver type mismatch:
+fun <T, R> Iterable<T>.map(transform: (T) -> R): List<R>
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:157:43 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:157:59 Unresolved reference 'id'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:157:85 Unresolved reference 'privateKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:157:120 Unresolved reference 'publicKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:161:42 Unresolved reference 'IdentityKeyPair'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:164:41 Unresolved reference 'x25519Private'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:165:41 Unresolved reference 'x25519Public'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:166:41 Unresolved reference 'ed25519Private'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:167:41 Unresolved reference 'ed25519Public'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:171:50 Unresolved reference 'IdentityKeyPair'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:174:16 Unresolved reference 'IdentityKeyPair'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:177:32 Unresolved reference 'SignedPreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:179:36 Unresolved reference 'id'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:179:63 Unresolved reference 'privateKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:179:99 Unresolved reference 'publicKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:179:134 Unresolved reference 'signature'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:182:45 Unresolved reference 'SignedPreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/keystore/AraKeyManager.kt:185:16 Unresolved reference 'SignedPreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/MessageCrypto.kt:73:9 Unresolved reference 'remoteIdentityStore'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/MessageCrypto.kt:76:9 Unresolved reference 'remoteIdentityStore'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/MessageCrypto.kt:79:20 Unresolved reference 'identityStore'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/MessageCrypto.kt:80:22 Unresolved reference 'remoteIdentityStore'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/MessageCrypto.kt:152:27 Unresolved reference 'toByteArray'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/MessageCrypto.kt:153:13 None of the following candidates is applicable:
+fun write(p0: Int): Unit
+fun write(p0: ByteArray!): Unit
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/MessageCrypto.kt:154:28 Unresolved reference 'toByteArray'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/MessageCrypto.kt:155:13 None of the following candidates is applicable:
+fun write(p0: Int): Unit
+fun write(p0: ByteArray!): Unit
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/SessionCipher.kt:47:47 Unresolved reference 'x25519Public'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/SessionCipher.kt:48:48 Unresolved reference 'ed25519Public'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/SessionCipher.kt:98:63 Unresolved reference 'identityX25519'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/SessionCipher.kt:98:86 Unresolved reference 'identityEd25519'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/SessionCipher.kt:101:74 Unresolved reference 'signedPreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/SessionCipher.kt:116:55 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/SessionCipher.kt:116:59 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/SessionCipher.kt:116:97 Unresolved reference 'privateKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/SessionCipher.kt:120:51 Unresolved reference 'privateKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/SessionCipher.kt:125:73 Unresolved reference 'privateKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/SessionCipher.kt:125:98 Unresolved reference 'publicKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/SessionCodec.kt:65:22 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/session/SessionCodec.kt:65:22 Unresolved reference. None of the following candidates is applicable because of a receiver type mismatch:
+fun <reified T> StringFormat.encodeToString(value: T): String
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/store/CryptoStores.kt:5:28 Unresolved reference 'keys'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/store/CryptoStores.kt:6:28 Unresolved reference 'keys'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/store/CryptoStores.kt:7:28 Unresolved reference 'keys'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/store/CryptoStores.kt:8:28 Unresolved reference 'keys'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/store/CryptoStores.kt:21:29 Unresolved reference 'IdentityKeyPair'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/store/CryptoStores.kt:22:40 Unresolved reference 'SignedPreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/store/CryptoStores.kt:23:39 Unresolved reference 'SignedPreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/store/CryptoStores.kt:24:44 Unresolved reference 'OneTimePreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/store/CryptoStores.kt:26:53 Unresolved reference 'OneTimePreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/store/CryptoStores.kt:27:43 Unresolved reference 'OneTimePreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/store/CryptoStores.kt:45:39 Unresolved reference 'KeyBundle'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/x3dh/X3dh.kt:3:28 Unresolved reference 'keys'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/x3dh/X3dh.kt:4:28 Unresolved reference 'keys'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/x3dh/X3dh.kt:34:31 Unresolved reference 'IdentityKeyPair'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/x3dh/X3dh.kt:34:61 Unresolved reference 'KeyBundle'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/x3dh/X3dh.kt:38:41 Unresolved reference 'identityEd25519'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/x3dh/X3dh.kt:39:39 Unresolved reference 'signedPreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/x3dh/X3dh.kt:40:41 Unresolved reference 'signedPreKeySignature'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/x3dh/X3dh.kt:47:45 Unresolved reference 'x25519Private'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/x3dh/X3dh.kt:47:72 Unresolved reference 'signedPreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/x3dh/X3dh.kt:48:63 Unresolved reference 'identityX25519'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/x3dh/X3dh.kt:49:63 Unresolved reference 'signedPreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/x3dh/X3dh.kt:50:31 Unresolved reference 'oneTimePreKey'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/x3dh/X3dh.kt:50:46 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/x3dh/X3dh.kt:50:50 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/x3dh/X3dh.kt:59:46 Unresolved reference 'signedPreKeyId'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/x3dh/X3dh.kt:60:47 Unresolved reference 'oneTimePreKeyId'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/x3dh/X3dh.kt:66:22 Unresolved reference 'IdentityKeyPair'.
+e: file:///home/runner/work/Ara/Ara/android/core-crypto/src/main/kotlin/com/ara/core/crypto/x3dh/X3dh.kt:73:45 Unresolved reference 'x25519Private'.
+
+> Task :core-common:lintAnalyzeDebug
+> Task :core-common:generateDebugLintModel
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1791612788058.json
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':core-crypto:compileDebugKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+* Exception is:
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':core-crypto:compileDebugKotlin'.
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:130)
+	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:293)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:128)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:116)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+	at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:111)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:138)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:123)
+	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
+	at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:51)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$10(DefaultBuildLifecycleController.java:313)
+	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:266)
+	at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:177)
+	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:44)
+	at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:177)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
+	at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:263)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:127)
+	at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:181)
+	at org.gradle.composite.internal.DefaultBuildController.access$000(DefaultBuildController.java:50)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:198)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:198)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
+Caused by: org.gradle.workers.internal.DefaultWorkerExecutor$WorkExecutionException: A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+	at org.gradle.workers.internal.DefaultWorkerExecutor$WorkItemExecution.waitForCompletion(DefaultWorkerExecutor.java:287)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.lambda$waitForItemsAndGatherFailures$2(DefaultAsyncWorkTracker.java:130)
+	at org.gradle.internal.Factories$1.create(Factories.java:31)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocks(DefaultWorkerLeaseService.java:335)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocks(DefaultWorkerLeaseService.java:318)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLock(DefaultWorkerLeaseService.java:323)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:126)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:92)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForAll(DefaultAsyncWorkTracker.java:78)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForCompletion(DefaultAsyncWorkTracker.java:66)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:252)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:229)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:212)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:195)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:162)
+	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:105)
+	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:59)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:56)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:56)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:42)
+	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:75)
+	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:50)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:28)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:67)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:37)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:61)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:26)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:69)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:46)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:40)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:29)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:189)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeAndStoreInCache(BuildCacheStep.java:145)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$executeWithCache$4(BuildCacheStep.java:101)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$executeWithCache$5(BuildCacheStep.java:101)
+	at org.gradle.internal.Try$Success.map(Try.java:175)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithCache(BuildCacheStep.java:85)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$0(BuildCacheStep.java:74)
+	at org.gradle.internal.Either$Left.fold(Either.java:115)
+	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:62)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:73)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:48)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:46)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:35)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:75)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:35)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:49)
+	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:27)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:71)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:39)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:65)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:36)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:107)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:56)
+	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:64)
+	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:43)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.executeWithNonEmptySources(AbstractSkipEmptyWorkStep.java:125)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:61)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:36)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.execute(HandleStaleOutputsStep.java:75)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.execute(HandleStaleOutputsStep.java:41)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$execute$0(AssignMutableWorkspaceStep.java:35)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:289)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:31)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:22)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:48)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:35)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:61)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:127)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:116)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+	at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:111)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:138)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:123)
+	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
+	at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:51)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$10(DefaultBuildLifecycleController.java:313)
+	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:266)
+	at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:177)
+	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:44)
+	at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:177)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
+	at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:263)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:127)
+	at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:181)
+	at org.gradle.composite.internal.DefaultBuildController.access$000(DefaultBuildController.java:50)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:198)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:198)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
+Caused by: org.jetbrains.kotlin.gradle.tasks.CompilationErrorException: Compilation error. See log for more details
+	at org.jetbrains.kotlin.gradle.tasks.TasksUtilsKt.throwExceptionIfCompilationFailed(tasksUtils.kt:21)
+	at org.jetbrains.kotlin.compilerRunner.GradleKotlinCompilerWork.run(GradleKotlinCompilerWork.kt:119)
+	at org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction.execute(GradleCompilerRunnerWithWorkers.kt:76)
+	at org.gradle.workers.internal.DefaultWorkerServer.execute(DefaultWorkerServer.java:63)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:66)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:62)
+	at org.gradle.internal.classloader.ClassLoaderUtils.executeInClassloader(ClassLoaderUtils.java:100)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.lambda$execute$0(NoIsolationWorkerFactory.java:62)
+	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:44)
+	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:41)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.workers.internal.AbstractWorker.executeWrappedInBuildOperation(AbstractWorker.java:41)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.execute(NoIsolationWorkerFactory.java:59)
+	at org.gradle.workers.internal.DefaultWorkerExecutor.lambda$submitWork$0(DefaultWorkerExecutor.java:174)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runExecution(DefaultConditionalExecutionQueue.java:194)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.access$700(DefaultConditionalExecutionQueue.java:127)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner$1.run(DefaultConditionalExecutionQueue.java:169)
+	at org.gradle.internal.Factories$1.create(Factories.java:31)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:263)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:127)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:132)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runBatch(DefaultConditionalExecutionQueue.java:164)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.run(DefaultConditionalExecutionQueue.java:133)
+	... 2 more
+
+
+BUILD FAILED in 3m 11s
+259 actionable tasks: 187 executed, 72 from cache
+Configuration cache entry stored.
