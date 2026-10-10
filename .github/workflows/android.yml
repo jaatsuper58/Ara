@@ -83,16 +83,15 @@ jobs:
         with:
           api-level: 34
           arch: x86_64
-          script: |
-            cd android
-            set -o pipefail
-            ./gradlew :core-database:connectedDebugAndroidTest --stacktrace 2>&1 | tee instrumented.log
-            echo ${PIPESTATUS[0]} > "$GITHUB_WORKSPACE/instrumented_exit_code"
-            # Always exit 0 here: emulator-console shutdown flakiness must not
-            # mask the real test verdict, which the next step reports.
-            exit 0
+          channel: stable
+          boot-timeout: 900
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
+          # Single-line form (proven to execute); the gradle verdict is written to
+          # a file so emulator-console shutdown flakiness cannot mask it.
+          script: cd android && ./gradlew :core-database:connectedDebugAndroidTest --stacktrace 2>&1 | tee instrumented.log; echo ${PIPESTATUS[0]} > "$GITHUB_WORKSPACE/instrumented_exit_code"; exit 0
 
       - name: Report instrumented test result
+        if: always()
         run: |
           CODE=$(cat "$GITHUB_WORKSPACE/instrumented_exit_code" 2>/dev/null || echo 1)
           echo "gradle exit code: $CODE"
