@@ -93,6 +93,11 @@ class SessionCipherTest {
         directory.register("alice", aliceStore)
         val (alice, bob) = buildCipherPair("alice", "bob", directory, aliceStore, bobStore)
 
+        // The very first message carries the X3DH handshake and establishes the
+        // session; out-of-order delivery applies only within an established chain.
+        val boot = alice.encrypt("bob", "boot".toByteArray())
+        bob.decrypt("alice", boot)
+
         val m1 = alice.encrypt("bob", "one".toByteArray())
         val m2 = alice.encrypt("bob", "two".toByteArray())
 

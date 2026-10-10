@@ -105,7 +105,10 @@ private class SenderKeys(private val store: SenderKeyStore) {
     suspend fun encrypt(groupId: String, plaintext: ByteArray): SenderKeyWire {
         val owned = store.ownedForGroup(groupId)
             ?: SenderKeyCodec.createKey(groupId).also { store.saveOwned(it) }
-        return SenderKeyCodec.encrypt(owned, plaintext)
+        val wire = SenderKeyCodec.encrypt(owned, plaintext)
+        // Persist the advanced iteration so every group message uses a fresh key.
+        store.saveOwned(owned)
+        return wire
     }
 
     suspend fun decrypt(senderId: String, wire: SenderKeyWire): ByteArray {

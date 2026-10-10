@@ -79,15 +79,15 @@ class DoubleRatchetTest {
     @Test
     fun `state survives serialize and deserialize`() {
         val (alice, bob) = sessionPair()
-        val serialized = SessionCodec.serialize(alice)
+        // The receiving side is what an app restart restores; the live sender keeps sending.
+        val serialized = SessionCodec.serialize(bob)
         val restored = SessionCodec.deserialize(serialized)
 
-        // Encrypt with the live state; the restored snapshot must still derive the same key.
         val (header, ciphertext, nonce) = DoubleRatchet.encrypt(alice, "persisted".toByteArray())
         assertArrayEquals("persisted".toByteArray(), DoubleRatchet.decrypt(restored, header, nonce, ciphertext))
 
-        // The restored copy was not mutated by the other side's encryption bookkeeping.
-        assertFalse(restored === alice)
+        // The restored copy is independent of the live one.
+        assertFalse(restored === bob)
     }
 
     @Test

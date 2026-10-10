@@ -9,7 +9,7 @@ data class OwnedSenderKey(
     val groupId: String,
     val distributionId: String,
     val chainKeySeed: ByteArray,
-    val iteration: Int = 0,
+    var iteration: Int = 0,
 )
 
 /** Received (cached) sender key of another group member. */
