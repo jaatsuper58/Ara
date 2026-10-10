@@ -103,7 +103,7 @@ class GroupsRepository @Inject constructor(
         return result
     }
 
-    private suspend fun persistGroup(dto: com.ara.core.net.dto.GroupDto) {
+    private suspend fun persistGroup(dto: com.ara.core.net.dto.GroupDto, me: String) {
         val chatId = chatIdFor(dto.id)
         val existing = chatDao.byId(chatId)
         chatDao.upsert(

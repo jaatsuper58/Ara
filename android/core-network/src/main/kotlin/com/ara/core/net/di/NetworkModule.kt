@@ -92,6 +92,10 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideGroupsApi(retrofit: Retrofit): GroupsApi = retrofit.create(GroupsApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideFilesApi(retrofit: Retrofit): FilesApi = retrofit.create(FilesApi::class.java)
 }
 
 @Module
