@@ -33,7 +33,7 @@ class RetentionWorker @AssistedInject constructor(
             messageDao.purgeExpired(now)
 
             // 2. Per-chat media retention.
-            val chats = kotlinx.coroutines.flow.first(chatDao.observeAll())
+            val chats = chatDao.observeAll().first()
             chats.forEach { chat ->
                 val days = chat.mediaRetentionDays
                 if (days > 0) {

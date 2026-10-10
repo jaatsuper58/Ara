@@ -20,6 +20,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import java.util.UUID
 import javax.inject.Inject
+import com.ara.core.common.ChatIds
+import com.ara.core.crypto.keys.KeyBundle
 
 /**
  * §7.1 — Onboarding: phone-number-free signup. A unique Ara ID is generated on
@@ -56,7 +58,7 @@ class OnboardingViewModel @Inject constructor(
             val identity = keyManager.identity()
             val spk = keyManager.currentSignedPreKey()
             val opks = keyManager.addOneTimePreKeys(100)
-            val bundle = com.ara.core.crypto.wire.KeyBundle(
+            val bundle = KeyBundle(
                 araId = araId,
                 identityX25519 = identity.x25519Public,
                 identityEd25519 = identity.ed25519Public,
@@ -112,7 +114,7 @@ class OnboardingViewModel @Inject constructor(
         val alphabet = "ABCDEFGHJKMNPQRSTVWXYZ23456789"
         val bytes = ByteArray(4)
         java.security.SecureRandom().nextBytes(bytes)
-        return buildString { repeat(4) { append(alphabet[(bytes[it].toInt() and 0xFF) % alphabet.size]) } }
+        return buildString { repeat(4) { append(alphabet[(bytes[it].toInt() and 0xFF) % alphabet.length]) } }
     }
 
     fun consumeError() { _error.value = null }
