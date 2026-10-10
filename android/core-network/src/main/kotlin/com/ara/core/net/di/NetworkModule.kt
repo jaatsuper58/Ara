@@ -96,6 +96,11 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideFilesApi(retrofit: Retrofit): FilesApi = retrofit.create(FilesApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideKeyBundleFetcher(api: AuthApi): KeyBundleFetcher =
+        KeyBundleFetcher { araId -> api.keyBundle(araId) }
 }
 
 @Module
