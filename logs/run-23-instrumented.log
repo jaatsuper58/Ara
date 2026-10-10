@@ -1,0 +1,956 @@
+Downloading https://services.gradle.org/distributions/gradle-8.10.2-bin.zip
+.............10%.............20%.............30%.............40%.............50%.............60%.............70%.............80%.............90%.............100%
+
+Welcome to Gradle 8.10.2!
+
+Here are the highlights of this release:
+ - Support for Java 23
+ - Faster configuration cache
+ - Better configuration cache reports
+
+For more details see https://docs.gradle.org/8.10.2/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+Calculating task graph as no cached configuration is available for tasks: connectedDebugAndroidTest
+> Task :core-common:preBuild UP-TO-DATE
+> Task :app:preBuild UP-TO-DATE
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core-crypto:preBuild UP-TO-DATE
+> Task :core-common:preDebugBuild UP-TO-DATE
+> Task :core-crypto:preDebugBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :core-database:preBuild UP-TO-DATE
+> Task :core-database:preDebugBuild UP-TO-DATE
+> Task :core-network:preBuild UP-TO-DATE
+> Task :core-network:preDebugBuild UP-TO-DATE
+> Task :core-database:writeDebugAarMetadata
+> Task :core-common:writeDebugAarMetadata
+> Task :core-ui:preBuild UP-TO-DATE
+> Task :core-ui:preDebugBuild UP-TO-DATE
+> Task :core-network:writeDebugAarMetadata
+> Task :core-crypto:writeDebugAarMetadata
+> Task :feature-chat:preBuild UP-TO-DATE
+> Task :feature-calls:preBuild UP-TO-DATE
+> Task :feature-contacts:preBuild UP-TO-DATE
+> Task :feature-calls:preDebugBuild UP-TO-DATE
+> Task :feature-chat:preDebugBuild UP-TO-DATE
+> Task :feature-contacts:preDebugBuild UP-TO-DATE
+> Task :core-ui:writeDebugAarMetadata
+> Task :feature-settings:preBuild UP-TO-DATE
+> Task :feature-settings:preDebugBuild UP-TO-DATE
+> Task :feature-calls:writeDebugAarMetadata
+> Task :feature-contacts:writeDebugAarMetadata
+> Task :feature-chat:writeDebugAarMetadata
+> Task :feature-settings:writeDebugAarMetadata
+> Task :core-crypto:generateDebugResValues
+> Task :app:generateDebugResValues FROM-CACHE
+> Task :core-common:generateDebugResValues FROM-CACHE
+> Task :core-crypto:generateDebugResources
+> Task :core-database:generateDebugResValues FROM-CACHE
+> Task :core-common:generateDebugResources FROM-CACHE
+> Task :core-database:generateDebugResources FROM-CACHE
+> Task :core-database:packageDebugResources
+> Task :core-crypto:packageDebugResources
+> Task :core-common:packageDebugResources
+> Task :core-network:generateDebugResValues FROM-CACHE
+> Task :core-ui:generateDebugResValues FROM-CACHE
+> Task :feature-calls:generateDebugResValues FROM-CACHE
+> Task :core-ui:generateDebugResources FROM-CACHE
+> Task :core-network:generateDebugResources FROM-CACHE
+> Task :feature-calls:generateDebugResources FROM-CACHE
+> Task :core-ui:packageDebugResources
+> Task :feature-calls:packageDebugResources
+> Task :core-network:packageDebugResources
+> Task :feature-chat:generateDebugResValues FROM-CACHE
+> Task :feature-contacts:generateDebugResValues FROM-CACHE
+> Task :feature-contacts:generateDebugResources FROM-CACHE
+> Task :feature-chat:generateDebugResources FROM-CACHE
+> Task :feature-contacts:packageDebugResources
+> Task :app:generateDebugResources
+> Task :feature-settings:generateDebugResValues FROM-CACHE
+> Task :feature-chat:packageDebugResources
+> Task :feature-settings:generateDebugResources FROM-CACHE
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :feature-settings:packageDebugResources
+> Task :core-common:extractDeepLinksDebug FROM-CACHE
+> Task :app:packageDebugResources
+> Task :app:parseDebugLocalResources
+> Task :app:mapDebugSourceSetPaths
+> Task :core-crypto:extractDeepLinksDebug FROM-CACHE
+> Task :app:checkDebugAarMetadata
+> Task :core-database:extractDeepLinksDebug FROM-CACHE
+> Task :core-common:processDebugManifest
+> Task :core-network:extractDeepLinksDebug FROM-CACHE
+> Task :core-database:processDebugManifest
+> Task :core-crypto:processDebugManifest
+> Task :core-ui:extractDeepLinksDebug FROM-CACHE
+> Task :feature-calls:extractDeepLinksDebug FROM-CACHE
+> Task :feature-calls:processDebugManifest
+> Task :core-ui:processDebugManifest
+> Task :core-network:processDebugManifest
+> Task :feature-chat:extractDeepLinksDebug FROM-CACHE
+> Task :feature-contacts:extractDeepLinksDebug FROM-CACHE
+> Task :feature-settings:extractDeepLinksDebug FROM-CACHE
+> Task :feature-chat:processDebugManifest
+> Task :feature-contacts:processDebugManifest
+> Task :feature-settings:processDebugManifest
+> Task :core-common:parseDebugLocalResources
+> Task :core-common:compileDebugLibraryResources
+> Task :core-crypto:compileDebugLibraryResources FROM-CACHE
+> Task :core-crypto:parseDebugLocalResources FROM-CACHE
+> Task :core-common:generateDebugRFile
+> Task :core-database:compileDebugLibraryResources FROM-CACHE
+> Task :core-database:parseDebugLocalResources FROM-CACHE
+> Task :core-crypto:generateDebugRFile
+> Task :core-network:compileDebugLibraryResources FROM-CACHE
+> Task :core-network:parseDebugLocalResources FROM-CACHE
+> Task :core-database:generateDebugRFile
+> Task :core-ui:compileDebugLibraryResources FROM-CACHE
+> Task :core-ui:parseDebugLocalResources FROM-CACHE
+> Task :core-ui:generateDebugRFile
+> Task :core-network:generateDebugRFile
+> Task :feature-calls:compileDebugLibraryResources FROM-CACHE
+> Task :feature-calls:parseDebugLocalResources FROM-CACHE
+> Task :feature-chat:compileDebugLibraryResources FROM-CACHE
+> Task :feature-chat:parseDebugLocalResources FROM-CACHE
+> Task :feature-calls:generateDebugRFile
+> Task :feature-contacts:compileDebugLibraryResources FROM-CACHE
+> Task :feature-chat:generateDebugRFile
+> Task :feature-contacts:parseDebugLocalResources FROM-CACHE
+> Task :feature-settings:compileDebugLibraryResources FROM-CACHE
+> Task :feature-settings:parseDebugLocalResources FROM-CACHE
+> Task :feature-contacts:generateDebugRFile
+> Task :core-common:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :feature-settings:generateDebugRFile
+> Task :core-common:javaPreCompileDebug
+> Task :core-crypto:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:processDebugManifestForPackage
+> Task :core-database:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core-database:javaPreCompileDebug
+> Task :core-network:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core-crypto:javaPreCompileDebug
+> Task :core-network:javaPreCompileDebug FROM-CACHE
+> Task :core-ui:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core-ui:javaPreCompileDebug FROM-CACHE
+> Task :feature-calls:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core-network:generateDebugBuildConfig
+> Task :feature-chat:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :feature-calls:javaPreCompileDebug FROM-CACHE
+> Task :feature-contacts:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :feature-chat:javaPreCompileDebug FROM-CACHE
+> Task :feature-settings:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :feature-settings:javaPreCompileDebug FROM-CACHE
+> Task :feature-contacts:javaPreCompileDebug FROM-CACHE
+> Task :app:javaPreCompileDebug
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :core-crypto:mergeDebugShaders
+> Task :core-crypto:compileDebugShaders NO-SOURCE
+> Task :core-crypto:generateDebugAssets UP-TO-DATE
+> Task :core-common:mergeDebugShaders
+> Task :core-common:compileDebugShaders NO-SOURCE
+> Task :core-common:generateDebugAssets UP-TO-DATE
+> Task :core-common:packageDebugAssets
+> Task :core-crypto:packageDebugAssets
+> Task :core-database:mergeDebugShaders
+> Task :core-database:compileDebugShaders NO-SOURCE
+> Task :core-database:generateDebugAssets UP-TO-DATE
+> Task :core-network:mergeDebugShaders
+> Task :core-network:compileDebugShaders NO-SOURCE
+> Task :core-network:generateDebugAssets UP-TO-DATE
+> Task :core-network:packageDebugAssets
+> Task :core-database:packageDebugAssets
+> Task :core-ui:mergeDebugShaders
+> Task :feature-calls:mergeDebugShaders
+> Task :core-ui:compileDebugShaders NO-SOURCE
+> Task :core-ui:generateDebugAssets UP-TO-DATE
+> Task :feature-calls:compileDebugShaders NO-SOURCE
+> Task :feature-calls:generateDebugAssets UP-TO-DATE
+> Task :feature-calls:packageDebugAssets
+> Task :core-ui:packageDebugAssets
+> Task :feature-chat:mergeDebugShaders
+> Task :feature-chat:compileDebugShaders NO-SOURCE
+> Task :feature-chat:generateDebugAssets UP-TO-DATE
+> Task :feature-contacts:mergeDebugShaders
+> Task :feature-contacts:compileDebugShaders NO-SOURCE
+> Task :feature-contacts:generateDebugAssets UP-TO-DATE
+> Task :feature-chat:packageDebugAssets
+> Task :feature-contacts:packageDebugAssets
+> Task :feature-settings:mergeDebugShaders
+> Task :feature-settings:compileDebugShaders NO-SOURCE
+> Task :feature-settings:generateDebugAssets UP-TO-DATE
+> Task :feature-settings:packageDebugAssets
+> Task :app:desugarDebugFileDependencies
+> Task :app:mergeDebugResources
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:mergeDebugJniLibFolders
+> Task :core-common:mergeDebugJniLibFolders
+> Task :core-common:mergeDebugNativeLibs NO-SOURCE
+> Task :core-common:copyDebugJniLibsProjectOnly
+> Task :core-crypto:mergeDebugJniLibFolders
+> Task :core-crypto:mergeDebugNativeLibs NO-SOURCE
+> Task :core-crypto:copyDebugJniLibsProjectOnly
+> Task :core-database:mergeDebugJniLibFolders
+> Task :core-database:mergeDebugNativeLibs NO-SOURCE
+> Task :core-database:copyDebugJniLibsProjectOnly
+> Task :core-network:mergeDebugJniLibFolders
+> Task :core-network:mergeDebugNativeLibs NO-SOURCE
+> Task :core-network:copyDebugJniLibsProjectOnly
+> Task :core-ui:mergeDebugJniLibFolders
+> Task :core-ui:mergeDebugNativeLibs NO-SOURCE
+> Task :core-ui:copyDebugJniLibsProjectOnly
+> Task :feature-calls:mergeDebugJniLibFolders
+> Task :feature-calls:mergeDebugNativeLibs NO-SOURCE
+> Task :feature-calls:copyDebugJniLibsProjectOnly
+> Task :feature-chat:mergeDebugJniLibFolders
+> Task :feature-chat:mergeDebugNativeLibs NO-SOURCE
+> Task :feature-chat:copyDebugJniLibsProjectOnly
+> Task :feature-contacts:mergeDebugJniLibFolders
+> Task :feature-contacts:mergeDebugNativeLibs NO-SOURCE
+> Task :feature-contacts:copyDebugJniLibsProjectOnly
+> Task :feature-settings:mergeDebugJniLibFolders
+> Task :feature-settings:mergeDebugNativeLibs NO-SOURCE
+> Task :feature-settings:copyDebugJniLibsProjectOnly
+> Task :app:checkDebugDuplicateClasses
+> Task :app:mergeDebugNativeLibs
+> Task :app:processDebugResources
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:preDebugAndroidTestBuild SKIPPED
+> Task :core-common:compileDebugKotlin
+> Task :core-common:compileDebugJavaWithJavac NO-SOURCE
+> Task :core-common:bundleLibCompileToJarDebug
+> Task :app:mergeExtDexDebug
+> Task :app:stripDebugDebugSymbols
+> Task :app:checkDebugAndroidTestAarMetadata
+> Task :core-common:bundleLibRuntimeToJarDebug
+
+> Task :app:stripDebugDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libandroidx.graphics.path.so, libdatastore_shared_counter.so, libjingle_peerconnection_so.so, libsqlcipher.so.
+
+> Task :core-common:processDebugJavaRes
+> Task :core-common:bundleLibRuntimeToDirDebug
+> Task :app:generateDebugAndroidTestResValues FROM-CACHE
+> Task :app:mapDebugAndroidTestSourceSetPaths
+> Task :app:generateDebugAndroidTestResources
+> Task :app:mergeDebugAndroidTestResources
+> Task :core-ui:compileDebugKotlin
+> Task :core-ui:compileDebugJavaWithJavac NO-SOURCE
+> Task :core-ui:bundleLibCompileToJarDebug
+> Task :core-ui:bundleLibRuntimeToJarDebug
+> Task :core-ui:processDebugJavaRes
+> Task :core-ui:bundleLibRuntimeToDirDebug
+> Task :app:javaPreCompileDebugAndroidTest FROM-CACHE
+> Task :app:mergeDebugAndroidTestShaders
+> Task :app:compileDebugAndroidTestShaders NO-SOURCE
+> Task :app:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :app:mergeDebugAndroidTestAssets
+> Task :app:compressDebugAndroidTestAssets FROM-CACHE
+> Task :app:desugarDebugAndroidTestFileDependencies FROM-CACHE
+> Task :app:checkDebugAndroidTestDuplicateClasses
+> Task :core-crypto:kspDebugKotlin
+> Task :core-crypto:compileDebugKotlin
+> Task :core-crypto:compileDebugJavaWithJavac
+> Task :core-crypto:transformDebugClassesWithAsm
+> Task :core-crypto:bundleLibCompileToJarDebug
+> Task :core-crypto:bundleLibRuntimeToJarDebug
+> Task :core-database:kspDebugKotlin
+> Task :core-database:compileDebugKotlin
+> Task :core-database:compileDebugJavaWithJavac
+> Task :core-database:transformDebugClassesWithAsm
+> Task :core-database:bundleLibCompileToJarDebug
+> Task :core-network:kspDebugKotlin
+> Task :core-network:compileDebugKotlin
+> Task :core-network:compileDebugJavaWithJavac
+> Task :core-network:transformDebugClassesWithAsm
+> Task :core-network:bundleLibCompileToJarDebug
+> Task :core-database:bundleLibRuntimeToJarDebug
+> Task :core-network:bundleLibRuntimeToJarDebug
+> Task :app:processDebugAndroidTestManifest
+> Task :feature-calls:kspDebugKotlin
+> Task :app:mergeExtDexDebugAndroidTest
+> Task :feature-chat:kspDebugKotlin
+
+> Task :feature-calls:compileDebugKotlin
+w: file:///home/runner/work/Ara/Ara/android/feature-calls/src/main/kotlin/com/ara/feature/calls/call/CallService.kt:45:46 'static field stat_sys_phone_call: Int' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/Ara/Ara/android/feature-calls/src/main/kotlin/com/ara/feature/calls/ui/CallsScreen.kt:86:43 'val Icons.Filled.CallMissed: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.CallMissed.
+w: file:///home/runner/work/Ara/Ara/android/feature-calls/src/main/kotlin/com/ara/feature/calls/ui/CallsScreen.kt:87:45 'val Icons.Filled.CallReceived: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.CallReceived.
+
+> Task :feature-contacts:kspDebugKotlin
+> Task :feature-contacts:compileDebugKotlin
+> Task :feature-calls:compileDebugJavaWithJavac
+> Task :feature-contacts:compileDebugJavaWithJavac
+
+> Task :feature-chat:compileDebugKotlin
+w: file:///home/runner/work/Ara/Ara/android/feature-chat/src/main/kotlin/com/ara/feature/chat/data/ChatRepository.kt:297:82 'fun create(contentType: MediaType?, content: ByteArray, offset: Int = ..., byteCount: Int = ...): RequestBody' is deprecated. Moved to extension function. Put the 'content' argument first to fix Java.
+
+> Task :feature-contacts:transformDebugClassesWithAsm
+> Task :feature-contacts:bundleLibCompileToJarDebug
+> Task :feature-contacts:bundleLibRuntimeToJarDebug
+> Task :feature-calls:transformDebugClassesWithAsm
+> Task :feature-calls:bundleLibCompileToJarDebug
+> Task :feature-calls:bundleLibRuntimeToJarDebug
+> Task :feature-chat:compileDebugJavaWithJavac
+> Task :core-crypto:processDebugJavaRes
+> Task :core-database:processDebugJavaRes
+> Task :feature-chat:transformDebugClassesWithAsm
+> Task :core-network:processDebugJavaRes
+> Task :feature-chat:bundleLibCompileToJarDebug
+> Task :feature-chat:bundleLibRuntimeToJarDebug
+> Task :feature-calls:processDebugJavaRes
+> Task :feature-chat:processDebugJavaRes
+> Task :feature-contacts:processDebugJavaRes
+> Task :feature-calls:bundleLibRuntimeToDirDebug
+> Task :feature-chat:bundleLibRuntimeToDirDebug
+> Task :feature-settings:kspDebugKotlin
+> Task :feature-contacts:bundleLibRuntimeToDirDebug
+> Task :core-database:bundleLibRuntimeToDirDebug
+> Task :core-network:bundleLibRuntimeToDirDebug
+> Task :core-crypto:bundleLibRuntimeToDirDebug
+> Task :app:mergeDebugAndroidTestJniLibFolders
+> Task :app:validateSigningDebugAndroidTest
+> Task :app:mergeDebugAndroidTestNativeLibs NO-SOURCE
+> Task :app:stripDebugAndroidTestDebugSymbols NO-SOURCE
+> Task :core-common:preDebugAndroidTestBuild UP-TO-DATE
+> Task :app:writeDebugAndroidTestSigningConfigVersions
+> Task :core-common:generateDebugAndroidTestResValues FROM-CACHE
+> Task :core-common:mapDebugAndroidTestSourceSetPaths
+> Task :core-common:checkDebugAndroidTestAarMetadata
+> Task :core-common:generateDebugAndroidTestResources FROM-CACHE
+> Task :core-common:processDebugAndroidTestManifest
+> Task :core-common:javaPreCompileDebugAndroidTest FROM-CACHE
+> Task :core-common:mergeDebugAndroidTestShaders
+> Task :core-common:compileDebugAndroidTestShaders NO-SOURCE
+> Task :core-common:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :core-common:mergeDebugAndroidTestAssets
+> Task :core-common:compressDebugAndroidTestAssets FROM-CACHE
+> Task :core-common:desugarDebugAndroidTestFileDependencies FROM-CACHE
+> Task :core-common:checkDebugAndroidTestDuplicateClasses
+> Task :app:processDebugAndroidTestResources
+> Task :core-common:mergeDebugAndroidTestResources
+> Task :core-common:mergeLibDexDebugAndroidTest
+> Task :core-common:mergeDebugAndroidTestJniLibFolders
+> Task :core-common:processDebugAndroidTestResources
+> Task :core-common:compileDebugAndroidTestKotlin NO-SOURCE
+> Task :core-common:compileDebugAndroidTestJavaWithJavac NO-SOURCE
+> Task :core-common:mergeDebugAndroidTestNativeLibs NO-SOURCE
+> Task :core-common:processDebugAndroidTestJavaRes NO-SOURCE
+> Task :core-common:dexBuilderDebugAndroidTest
+> Task :feature-settings:compileDebugKotlin
+> Task :feature-settings:compileDebugJavaWithJavac
+> Task :feature-settings:transformDebugClassesWithAsm
+> Task :feature-settings:bundleLibCompileToJarDebug
+> Task :core-common:mergeDebugAndroidTestJavaResource
+> Task :feature-settings:bundleLibRuntimeToJarDebug
+> Task :feature-settings:processDebugJavaRes
+> Task :feature-settings:bundleLibRuntimeToDirDebug
+> Task :core-common:mergeDebugAndroidTestGlobalSynthetics
+> Task :app:mergeLibDexDebug
+> Task :app:mergeLibDexDebugAndroidTest
+> Task :core-common:stripDebugAndroidTestDebugSymbols NO-SOURCE
+> Task :core-common:validateSigningDebugAndroidTest
+> Task :core-common:writeDebugAndroidTestSigningConfigVersions
+> Task :core-crypto:preDebugAndroidTestBuild UP-TO-DATE
+> Task :core-common:mergeProjectDexDebugAndroidTest
+> Task :core-crypto:generateDebugAndroidTestResValues FROM-CACHE
+> Task :core-crypto:mapDebugAndroidTestSourceSetPaths
+> Task :core-crypto:checkDebugAndroidTestAarMetadata
+> Task :core-crypto:generateDebugAndroidTestResources FROM-CACHE
+> Task :core-crypto:processDebugAndroidTestManifest
+> Task :core-crypto:javaPreCompileDebugAndroidTest FROM-CACHE
+> Task :core-crypto:mergeDebugAndroidTestShaders
+> Task :core-crypto:compileDebugAndroidTestShaders NO-SOURCE
+> Task :core-crypto:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :core-crypto:mergeDebugAndroidTestAssets
+> Task :core-crypto:compressDebugAndroidTestAssets FROM-CACHE
+> Task :core-crypto:desugarDebugAndroidTestFileDependencies FROM-CACHE
+> Task :core-crypto:checkDebugAndroidTestDuplicateClasses
+> Task :core-crypto:mergeDebugAndroidTestResources
+> Task :core-crypto:processDebugAndroidTestResources
+> Task :core-crypto:kspDebugAndroidTestKotlin NO-SOURCE
+> Task :core-crypto:compileDebugAndroidTestKotlin NO-SOURCE
+> Task :core-crypto:compileDebugAndroidTestJavaWithJavac NO-SOURCE
+> Task :core-common:mergeExtDexDebugAndroidTest
+> Task :core-common:packageDebugAndroidTest
+> Task :core-common:createDebugAndroidTestApkListingFileRedirect
+> Task :core-crypto:hiltAggregateDepsDebugAndroidTest
+> Task :core-crypto:hiltJavaCompileDebugAndroidTest NO-SOURCE
+> Task :core-crypto:transformDebugAndroidTestClassesWithAsm
+> Task :core-crypto:dexBuilderDebugAndroidTest
+> Task :core-crypto:mergeDebugAndroidTestGlobalSynthetics FROM-CACHE
+> Task :core-crypto:processDebugAndroidTestJavaRes NO-SOURCE
+> Task :core-crypto:mergeDebugAndroidTestJavaResource
+> Task :app:kspDebugKotlin
+> Task :core-crypto:mergeLibDexDebugAndroidTest
+> Task :core-crypto:mergeProjectDexDebugAndroidTest
+> Task :core-crypto:mergeDebugAndroidTestJniLibFolders
+> Task :core-crypto:mergeDebugAndroidTestNativeLibs NO-SOURCE
+> Task :core-crypto:stripDebugAndroidTestDebugSymbols NO-SOURCE
+> Task :core-crypto:validateSigningDebugAndroidTest
+> Task :core-crypto:writeDebugAndroidTestSigningConfigVersions
+> Task :core-database:preDebugAndroidTestBuild UP-TO-DATE
+> Task :core-database:checkDebugAndroidTestAarMetadata
+> Task :core-database:generateDebugAndroidTestResValues FROM-CACHE
+> Task :core-database:mapDebugAndroidTestSourceSetPaths
+> Task :core-database:generateDebugAndroidTestResources FROM-CACHE
+> Task :core-database:mergeDebugAndroidTestResources
+> Task :core-database:processDebugAndroidTestManifest
+> Task :core-database:processDebugAndroidTestResources
+> Task :core-common:connectedDebugAndroidTest
+> Task :core-database:javaPreCompileDebugAndroidTest FROM-CACHE
+> Task :core-database:mergeDebugAndroidTestShaders
+> Task :core-database:compileDebugAndroidTestShaders NO-SOURCE
+> Task :core-database:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :core-database:mergeDebugAndroidTestAssets
+> Task :core-database:compressDebugAndroidTestAssets FROM-CACHE
+> Task :core-database:desugarDebugAndroidTestFileDependencies FROM-CACHE
+> Task :core-database:checkDebugAndroidTestDuplicateClasses
+> Task :core-crypto:mergeExtDexDebugAndroidTest
+> Task :core-database:kspDebugAndroidTestKotlin
+> Task :core-crypto:packageDebugAndroidTest
+> Task :core-crypto:createDebugAndroidTestApkListingFileRedirect
+[EmulatorConsole]: Failed to start Emulator console for 5554
+> Task :core-database:compileDebugAndroidTestKotlin
+> Task :core-database:compileDebugAndroidTestJavaWithJavac NO-SOURCE
+> Task :core-database:hiltAggregateDepsDebugAndroidTest
+> Task :core-database:hiltJavaCompileDebugAndroidTest NO-SOURCE
+> Task :core-database:transformDebugAndroidTestClassesWithAsm
+> Task :app:compileDebugKotlin
+> Task :core-database:dexBuilderDebugAndroidTest
+> Task :core-database:mergeDebugAndroidTestGlobalSynthetics FROM-CACHE
+> Task :core-database:processDebugAndroidTestJavaRes
+> Task :core-database:mergeDebugAndroidTestJavaResource
+> Task :core-database:mergeExtDexDebugAndroidTest
+> Task :core-database:mergeProjectDexDebugAndroidTest
+> Task :core-database:mergeDebugAndroidTestJniLibFolders
+> Task :core-database:mergeLibDexDebugAndroidTest
+> Task :core-database:validateSigningDebugAndroidTest
+> Task :core-database:writeDebugAndroidTestSigningConfigVersions
+> Task :core-network:preDebugAndroidTestBuild UP-TO-DATE
+> Task :app:compileDebugJavaWithJavac
+> Task :core-network:processDebugAndroidTestManifest
+> Task :core-network:generateDebugAndroidTestBuildConfig
+> Task :core-database:mergeDebugAndroidTestNativeLibs
+> Task :core-network:checkDebugAndroidTestAarMetadata
+> Task :core-network:generateDebugAndroidTestResValues FROM-CACHE
+> Task :core-network:mapDebugAndroidTestSourceSetPaths
+> Task :core-network:generateDebugAndroidTestResources FROM-CACHE
+
+> Task :core-database:stripDebugAndroidTestDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libsqlcipher.so.
+
+> Task :core-database:packageDebugAndroidTest
+> Task :core-database:createDebugAndroidTestApkListingFileRedirect
+> Task :core-network:mergeDebugAndroidTestResources
+> Task :app:hiltAggregateDepsDebug
+> Task :core-network:processDebugAndroidTestResources
+> Task :core-network:kspDebugAndroidTestKotlin
+> Task :core-network:compileDebugAndroidTestKotlin NO-SOURCE
+> Task :core-network:javaPreCompileDebugAndroidTest FROM-CACHE
+> Task :core-network:compileDebugAndroidTestJavaWithJavac
+> Task :core-network:mergeDebugAndroidTestShaders
+> Task :core-network:compileDebugAndroidTestShaders NO-SOURCE
+> Task :core-network:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :core-network:mergeDebugAndroidTestAssets
+> Task :core-network:compressDebugAndroidTestAssets FROM-CACHE
+> Task :core-network:desugarDebugAndroidTestFileDependencies FROM-CACHE
+> Task :core-network:hiltAggregateDepsDebugAndroidTest
+> Task :core-network:hiltJavaCompileDebugAndroidTest NO-SOURCE
+> Task :core-network:transformDebugAndroidTestClassesWithAsm
+> Task :core-network:dexBuilderDebugAndroidTest
+> Task :core-network:mergeDebugAndroidTestGlobalSynthetics FROM-CACHE
+> Task :core-network:processDebugAndroidTestJavaRes NO-SOURCE
+> Task :core-network:mergeDebugAndroidTestJavaResource
+> Task :core-network:checkDebugAndroidTestDuplicateClasses
+> Task :app:hiltJavaCompileDebug
+> Task :app:transformDebugClassesWithAsm
+> Task :core-network:mergeExtDexDebugAndroidTest
+> Task :app:processDebugJavaRes
+> Task :app:dexBuilderDebug
+> Task :app:mergeDebugGlobalSynthetics FROM-CACHE
+> Task :app:mergeProjectDexDebug
+> Task :app:bundleDebugClassesToCompileJar
+> Task :app:kspDebugAndroidTestKotlin NO-SOURCE
+> Task :app:compileDebugAndroidTestKotlin NO-SOURCE
+> Task :app:compileDebugAndroidTestJavaWithJavac NO-SOURCE
+> Task :app:hiltAggregateDepsDebugAndroidTest
+> Task :app:hiltJavaCompileDebugAndroidTest NO-SOURCE
+> Task :app:transformDebugAndroidTestClassesWithAsm
+> Task :app:dexBuilderDebugAndroidTest
+> Task :app:mergeDebugAndroidTestGlobalSynthetics FROM-CACHE
+> Task :app:processDebugAndroidTestJavaRes NO-SOURCE
+> Task :app:mergeDebugAndroidTestJavaResource
+> Task :app:mergeProjectDexDebugAndroidTest
+> Task :app:packageDebugAndroidTest
+> Task :app:createDebugAndroidTestApkListingFileRedirect
+> Task :core-network:mergeLibDexDebugAndroidTest
+> Task :core-network:mergeProjectDexDebugAndroidTest
+> Task :core-network:mergeDebugAndroidTestJniLibFolders
+> Task :core-network:mergeDebugAndroidTestNativeLibs
+
+> Task :core-network:stripDebugAndroidTestDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libdatastore_shared_counter.so.
+
+> Task :core-network:validateSigningDebugAndroidTest
+> Task :core-network:writeDebugAndroidTestSigningConfigVersions
+> Task :core-network:packageDebugAndroidTest
+> Task :core-network:createDebugAndroidTestApkListingFileRedirect
+> Task :app:mergeDebugJavaResource
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :core-crypto:connectedDebugAndroidTest
+> Task :core-database:connectedDebugAndroidTest
+> Task :core-network:connectedDebugAndroidTest
+> Task :app:connectedDebugAndroidTest
+
+> Task :core-crypto:connectedDebugAndroidTest
+Starting 0 tests on emulator-5554 - 14
+
+Finished 0 tests on emulator-5554 - 14
+[EmulatorConsole]: Failed to start Emulator console for 5554
+
+> Task :core-ui:preDebugAndroidTestBuild UP-TO-DATE
+> Task :core-ui:checkDebugAndroidTestAarMetadata
+> Task :core-ui:generateDebugAndroidTestResValues FROM-CACHE
+> Task :core-ui:mapDebugAndroidTestSourceSetPaths
+> Task :core-ui:generateDebugAndroidTestResources FROM-CACHE
+> Task :core-ui:mergeDebugAndroidTestResources
+> Task :core-ui:processDebugAndroidTestManifest
+> Task :core-ui:processDebugAndroidTestResources
+> Task :core-ui:compileDebugAndroidTestKotlin NO-SOURCE
+> Task :core-ui:javaPreCompileDebugAndroidTest FROM-CACHE
+> Task :core-ui:compileDebugAndroidTestJavaWithJavac NO-SOURCE
+> Task :core-ui:mergeDebugAndroidTestShaders
+> Task :core-ui:compileDebugAndroidTestShaders NO-SOURCE
+> Task :core-ui:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :core-ui:mergeDebugAndroidTestAssets
+> Task :core-ui:compressDebugAndroidTestAssets FROM-CACHE
+> Task :core-ui:desugarDebugAndroidTestFileDependencies FROM-CACHE
+> Task :core-ui:dexBuilderDebugAndroidTest
+> Task :core-ui:mergeDebugAndroidTestGlobalSynthetics FROM-CACHE
+> Task :core-ui:processDebugAndroidTestJavaRes NO-SOURCE
+> Task :core-ui:mergeDebugAndroidTestJavaResource
+> Task :core-ui:checkDebugAndroidTestDuplicateClasses
+
+> Task :core-database:connectedDebugAndroidTest
+Starting 3 tests on emulator-5554 - 14
+
+> Task :core-ui:mergeExtDexDebugAndroidTest
+> Task :core-ui:mergeLibDexDebugAndroidTest
+> Task :core-ui:mergeProjectDexDebugAndroidTest
+> Task :core-ui:mergeDebugAndroidTestJniLibFolders
+> Task :core-ui:mergeDebugAndroidTestNativeLibs
+
+> Task :core-ui:stripDebugAndroidTestDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libandroidx.graphics.path.so.
+
+> Task :core-ui:validateSigningDebugAndroidTest
+> Task :core-ui:writeDebugAndroidTestSigningConfigVersions
+> Task :core-ui:packageDebugAndroidTest
+> Task :core-ui:createDebugAndroidTestApkListingFileRedirect
+> Task :core-ui:connectedDebugAndroidTest
+> Task :feature-calls:preDebugAndroidTestBuild UP-TO-DATE
+> Task :feature-calls:checkDebugAndroidTestAarMetadata
+> Task :feature-calls:generateDebugAndroidTestResValues FROM-CACHE
+> Task :feature-calls:mapDebugAndroidTestSourceSetPaths
+> Task :feature-calls:generateDebugAndroidTestResources FROM-CACHE
+Finished 3 tests on emulator-5554 - 14
+[EmulatorConsole]: Failed to start Emulator console for 5554
+> Task :feature-calls:mergeDebugAndroidTestResources
+> Task :feature-calls:javaPreCompileDebugAndroidTest FROM-CACHE
+> Task :feature-calls:mergeDebugAndroidTestShaders
+> Task :feature-calls:compileDebugAndroidTestShaders NO-SOURCE
+> Task :feature-calls:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :feature-calls:mergeDebugAndroidTestAssets
+> Task :feature-calls:compressDebugAndroidTestAssets FROM-CACHE
+> Task :feature-calls:desugarDebugAndroidTestFileDependencies FROM-CACHE
+> Task :feature-calls:processDebugAndroidTestManifest
+> Task :feature-calls:checkDebugAndroidTestDuplicateClasses
+> Task :feature-calls:processDebugAndroidTestResources
+> Task :feature-calls:kspDebugAndroidTestKotlin NO-SOURCE
+> Task :feature-calls:compileDebugAndroidTestKotlin NO-SOURCE
+> Task :feature-calls:compileDebugAndroidTestJavaWithJavac NO-SOURCE
+> Task :feature-calls:hiltAggregateDepsDebugAndroidTest
+> Task :feature-calls:hiltJavaCompileDebugAndroidTest NO-SOURCE
+> Task :feature-calls:transformDebugAndroidTestClassesWithAsm
+> Task :feature-calls:dexBuilderDebugAndroidTest
+> Task :feature-calls:mergeDebugAndroidTestGlobalSynthetics FROM-CACHE
+> Task :feature-calls:processDebugAndroidTestJavaRes NO-SOURCE
+> Task :feature-calls:mergeDebugAndroidTestJavaResource
+> Task :feature-calls:mergeLibDexDebugAndroidTest
+> Task :feature-calls:mergeProjectDexDebugAndroidTest
+> Task :feature-calls:mergeDebugAndroidTestJniLibFolders
+> Task :feature-calls:mergeDebugAndroidTestNativeLibs
+
+> Task :feature-calls:stripDebugAndroidTestDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libandroidx.graphics.path.so, libdatastore_shared_counter.so, libjingle_peerconnection_so.so, libsqlcipher.so.
+
+> Task :feature-calls:validateSigningDebugAndroidTest
+> Task :feature-calls:writeDebugAndroidTestSigningConfigVersions
+> Task :feature-chat:preDebugAndroidTestBuild UP-TO-DATE
+> Task :feature-chat:checkDebugAndroidTestAarMetadata
+> Task :feature-chat:generateDebugAndroidTestResValues FROM-CACHE
+> Task :feature-chat:mapDebugAndroidTestSourceSetPaths
+> Task :feature-chat:generateDebugAndroidTestResources FROM-CACHE
+> Task :feature-chat:mergeDebugAndroidTestResources
+> Task :feature-chat:processDebugAndroidTestManifest
+> Task :feature-chat:processDebugAndroidTestResources
+> Task :feature-chat:kspDebugAndroidTestKotlin NO-SOURCE
+> Task :feature-chat:compileDebugAndroidTestKotlin NO-SOURCE
+> Task :feature-chat:javaPreCompileDebugAndroidTest FROM-CACHE
+> Task :feature-chat:compileDebugAndroidTestJavaWithJavac NO-SOURCE
+> Task :feature-chat:mergeDebugAndroidTestShaders
+> Task :feature-chat:compileDebugAndroidTestShaders NO-SOURCE
+> Task :feature-chat:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :feature-chat:mergeDebugAndroidTestAssets
+> Task :feature-chat:compressDebugAndroidTestAssets FROM-CACHE
+> Task :feature-chat:desugarDebugAndroidTestFileDependencies FROM-CACHE
+> Task :feature-chat:hiltAggregateDepsDebugAndroidTest
+> Task :feature-chat:hiltJavaCompileDebugAndroidTest NO-SOURCE
+> Task :feature-chat:transformDebugAndroidTestClassesWithAsm
+> Task :feature-chat:dexBuilderDebugAndroidTest
+> Task :feature-chat:mergeDebugAndroidTestGlobalSynthetics FROM-CACHE
+> Task :feature-chat:processDebugAndroidTestJavaRes NO-SOURCE
+> Task :feature-chat:mergeDebugAndroidTestJavaResource
+> Task :feature-chat:checkDebugAndroidTestDuplicateClasses
+> Task :feature-calls:mergeExtDexDebugAndroidTest
+> Task :feature-calls:packageDebugAndroidTest
+> Task :feature-calls:createDebugAndroidTestApkListingFileRedirect
+> Task :feature-chat:mergeExtDexDebugAndroidTest
+> Task :feature-chat:mergeLibDexDebugAndroidTest
+> Task :feature-chat:mergeProjectDexDebugAndroidTest
+> Task :feature-chat:mergeDebugAndroidTestJniLibFolders
+> Task :feature-chat:mergeDebugAndroidTestNativeLibs
+
+> Task :feature-chat:stripDebugAndroidTestDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libandroidx.graphics.path.so, libdatastore_shared_counter.so, libsqlcipher.so.
+
+> Task :feature-chat:validateSigningDebugAndroidTest
+> Task :feature-chat:writeDebugAndroidTestSigningConfigVersions
+> Task :feature-chat:packageDebugAndroidTest
+> Task :feature-chat:createDebugAndroidTestApkListingFileRedirect
+> Task :feature-calls:connectedDebugAndroidTest
+> Task :feature-chat:connectedDebugAndroidTest
+
+> Task :core-network:connectedDebugAndroidTest
+Starting 0 tests on emulator-5554 - 14
+
+Finished 0 tests on emulator-5554 - 14
+
+> Task :feature-contacts:preDebugAndroidTestBuild UP-TO-DATE
+[EmulatorConsole]: Failed to start Emulator console for 5554
+> Task :feature-contacts:checkDebugAndroidTestAarMetadata
+> Task :feature-contacts:generateDebugAndroidTestResValues FROM-CACHE
+> Task :feature-contacts:mapDebugAndroidTestSourceSetPaths
+> Task :feature-contacts:generateDebugAndroidTestResources FROM-CACHE
+> Task :feature-contacts:mergeDebugAndroidTestResources
+> Task :feature-contacts:processDebugAndroidTestManifest
+> Task :feature-contacts:processDebugAndroidTestResources
+> Task :feature-contacts:kspDebugAndroidTestKotlin NO-SOURCE
+> Task :feature-contacts:compileDebugAndroidTestKotlin NO-SOURCE
+> Task :feature-contacts:javaPreCompileDebugAndroidTest FROM-CACHE
+> Task :feature-contacts:compileDebugAndroidTestJavaWithJavac NO-SOURCE
+> Task :feature-contacts:mergeDebugAndroidTestShaders
+> Task :feature-contacts:compileDebugAndroidTestShaders NO-SOURCE
+> Task :feature-contacts:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :feature-contacts:mergeDebugAndroidTestAssets
+> Task :feature-contacts:compressDebugAndroidTestAssets FROM-CACHE
+> Task :feature-contacts:desugarDebugAndroidTestFileDependencies FROM-CACHE
+> Task :feature-contacts:hiltAggregateDepsDebugAndroidTest
+> Task :feature-contacts:hiltJavaCompileDebugAndroidTest NO-SOURCE
+> Task :feature-contacts:transformDebugAndroidTestClassesWithAsm
+> Task :feature-contacts:dexBuilderDebugAndroidTest
+> Task :feature-contacts:mergeDebugAndroidTestGlobalSynthetics FROM-CACHE
+> Task :feature-contacts:processDebugAndroidTestJavaRes NO-SOURCE
+> Task :feature-contacts:mergeDebugAndroidTestJavaResource
+> Task :feature-contacts:checkDebugAndroidTestDuplicateClasses
+
+> Task :app:connectedDebugAndroidTest
+Starting 0 tests on emulator-5554 - 14
+
+Finished 0 tests on emulator-5554 - 14
+
+> Task :feature-contacts:mergeExtDexDebugAndroidTest
+[EmulatorConsole]: Failed to start Emulator console for 5554
+> Task :feature-contacts:mergeProjectDexDebugAndroidTest
+> Task :feature-contacts:mergeDebugAndroidTestJniLibFolders
+> Task :feature-contacts:mergeLibDexDebugAndroidTest
+> Task :feature-contacts:validateSigningDebugAndroidTest
+> Task :feature-contacts:writeDebugAndroidTestSigningConfigVersions
+> Task :feature-settings:preDebugAndroidTestBuild UP-TO-DATE
+> Task :feature-contacts:mergeDebugAndroidTestNativeLibs
+
+> Task :feature-contacts:stripDebugAndroidTestDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libandroidx.graphics.path.so, libdatastore_shared_counter.so, libsqlcipher.so.
+
+> Task :feature-settings:checkDebugAndroidTestAarMetadata
+> Task :feature-settings:generateDebugAndroidTestResValues FROM-CACHE
+> Task :feature-settings:mapDebugAndroidTestSourceSetPaths
+> Task :feature-settings:generateDebugAndroidTestResources FROM-CACHE
+> Task :feature-contacts:packageDebugAndroidTest
+> Task :feature-contacts:createDebugAndroidTestApkListingFileRedirect
+> Task :feature-settings:mergeDebugAndroidTestResources
+> Task :feature-settings:processDebugAndroidTestManifest
+> Task :feature-settings:processDebugAndroidTestResources
+> Task :feature-settings:kspDebugAndroidTestKotlin NO-SOURCE
+> Task :feature-settings:compileDebugAndroidTestKotlin NO-SOURCE
+> Task :feature-settings:javaPreCompileDebugAndroidTest FROM-CACHE
+> Task :feature-settings:compileDebugAndroidTestJavaWithJavac NO-SOURCE
+> Task :feature-settings:mergeDebugAndroidTestShaders
+> Task :feature-settings:compileDebugAndroidTestShaders NO-SOURCE
+> Task :feature-settings:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :feature-settings:mergeDebugAndroidTestAssets
+> Task :feature-settings:compressDebugAndroidTestAssets FROM-CACHE
+> Task :feature-settings:desugarDebugAndroidTestFileDependencies FROM-CACHE
+> Task :feature-settings:hiltAggregateDepsDebugAndroidTest
+> Task :feature-settings:hiltJavaCompileDebugAndroidTest NO-SOURCE
+> Task :feature-settings:transformDebugAndroidTestClassesWithAsm
+> Task :feature-settings:dexBuilderDebugAndroidTest
+> Task :feature-settings:mergeDebugAndroidTestGlobalSynthetics FROM-CACHE
+> Task :feature-settings:processDebugAndroidTestJavaRes NO-SOURCE
+> Task :feature-settings:mergeDebugAndroidTestJavaResource
+> Task :feature-settings:checkDebugAndroidTestDuplicateClasses
+> Task :feature-settings:mergeExtDexDebugAndroidTest
+> Task :feature-settings:mergeLibDexDebugAndroidTest
+> Task :feature-settings:mergeProjectDexDebugAndroidTest
+> Task :feature-settings:mergeDebugAndroidTestJniLibFolders
+> Task :feature-settings:mergeDebugAndroidTestNativeLibs
+
+> Task :feature-settings:stripDebugAndroidTestDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libandroidx.graphics.path.so, libdatastore_shared_counter.so, libsqlcipher.so.
+
+> Task :feature-settings:validateSigningDebugAndroidTest
+> Task :feature-settings:writeDebugAndroidTestSigningConfigVersions
+> Task :feature-settings:packageDebugAndroidTest
+> Task :feature-settings:createDebugAndroidTestApkListingFileRedirect
+> Task :feature-contacts:connectedDebugAndroidTest
+> Task :feature-settings:connectedDebugAndroidTest
+
+> Task :feature-calls:connectedDebugAndroidTest
+Starting 0 tests on emulator-5554 - 14
+
+Finished 0 tests on emulator-5554 - 14
+[EmulatorConsole]: Failed to start Emulator console for 5554
+
+> Task :feature-chat:connectedDebugAndroidTest
+Starting 0 tests on emulator-5554 - 14
+
+Finished 0 tests on emulator-5554 - 14
+
+> Task :feature-chat:connectedDebugAndroidTest FAILED
+Test run failed to complete. Instrumentation run failed due to Process crashed.
+Logcat of last crash: 
+Process: com.ara.feature.chat.test, PID: 3190
+java.lang.RuntimeException: Unable to instantiate instrumentation ComponentInfo{com.ara.feature.chat.test/androidx.test.runner.AndroidJUnitRunner}: java.lang.ClassNotFoundException: Didn't find class "androidx.test.runner.AndroidJUnitRunner" on path: DexPathList[[zip file "/data/app/~~7YH_bM6ajDq9iWjjcTFVaA==/com.ara.feature.chat.test-QWw0sAGyfDgJcPNF3-cBcA==/base.apk"],nativeLibraryDirectories=[/data/app/~~7YH_bM6ajDq9iWjjcTFVaA==/com.ara.feature.chat.test-QWw0sAGyfDgJcPNF3-cBcA==/lib/x86_64, /data/app/~~7YH_bM6ajDq9iWjjcTFVaA==/com.ara.feature.chat.test-QWw0sAGyfDgJcPNF3-cBcA==/base.apk!/lib/x86_64, /system/lib64, /system_ext/lib64]]
+	at android.app.ActivityThread.initInstrumentation(ActivityThread.java:7216)
+	at android.app.ActivityThread.handleBindApplication(ActivityThread.java:6926)
+	at android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)
+	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2236)
+	at android.os.Handler.dispatchMessage(Handler.java:106)
+	at android.os.Looper.loopOnce(Looper.java:205)
+	at android.os.Looper.loop(Looper.java:294)
+	at android.app.ActivityThread.main(ActivityThread.java:8177)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+Caused by: java.lang.ClassNotFoundException: Didn't find class "androidx.test.runner.AndroidJUnitRunner" on path: DexPathList[[zip file "/data/app/~~7YH_bM6ajDq9iWjjcTFVaA==/com.ara.feature.chat.test-QWw0sAGyfDgJcPNF3-cBcA==/base.apk"],nativeLibraryDirectories=[/data/app/~~7YH_bM6ajDq9iWjjcTFVaA==/com.ara.feature.chat.test-QWw0sAGyfDgJcPNF3-cBcA==/lib/x86_64, /data/app/~~7YH_bM6ajDq9iWjjcTFVaA==/com.ara.feature.chat.test-QWw0sAGyfDgJcPNF3-cBcA==/base.apk!/lib/x86_64, /system/lib64, /system_ext/lib64]]
+	at dalvik.system.BaseDexClassLoader.findClass(BaseDexClassLoader.java:259)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:379)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:312)
+	at android.app.ActivityThread.initInstrumentation(ActivityThread.java:7212)
+	... 10 more
+
+[EmulatorConsole]: Failed to start Emulator console for 5554
+
+> Task :feature-contacts:connectedDebugAndroidTest
+Starting 0 tests on emulator-5554 - 14
+
+Finished 0 tests on emulator-5554 - 14
+[EmulatorConsole]: Failed to start Emulator console for 5554
+
+> Task :feature-settings:connectedDebugAndroidTest
+Starting 0 tests on emulator-5554 - 14
+
+Finished 0 tests on emulator-5554 - 14
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__reactivecircus_android-emulator-runner-1791621300485.json
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':feature-chat:connectedDebugAndroidTest'.
+> There were failing tests. See the report at: file:///home/runner/work/Ara/Ara/android/feature-chat/build/reports/androidTests/connected/debug/index.html
+
+* Try:
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+* Exception is:
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':feature-chat:connectedDebugAndroidTest'.
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:130)
+	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:293)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:128)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:116)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
+Caused by: org.gradle.api.GradleException: There were failing tests. See the report at: file:///home/runner/work/Ara/Ara/android/feature-chat/build/reports/androidTests/connected/debug/index.html
+	at com.android.build.gradle.internal.tasks.DeviceProviderInstrumentTestTask.run(DeviceProviderInstrumentTestTask.java:445)
+	at com.android.build.gradle.internal.tasks.DeviceProviderInstrumentTestTask.doTaskAction(DeviceProviderInstrumentTestTask.java:305)
+	at com.android.build.gradle.internal.tasks.NonIncrementalTask$taskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:79)
+	at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
+	at com.android.build.gradle.internal.tasks.NonIncrementalTask.taskAction(NonIncrementalTask.kt:78)
+	at jdk.internal.reflect.GeneratedMethodAccessor477.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.doExecute(StandardTaskAction.java:58)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:244)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:229)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:212)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:195)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:162)
+	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:105)
+	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:59)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:56)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:56)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:42)
+	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:75)
+	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:50)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:28)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:67)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:37)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:61)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:26)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:69)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:46)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:40)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:29)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:189)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:75)
+	at org.gradle.internal.Either$Right.fold(Either.java:175)
+	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:62)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:73)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:48)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:46)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:35)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:75)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:35)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:49)
+	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:27)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:71)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:39)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:65)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:36)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:107)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:56)
+	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:64)
+	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:43)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.executeWithNonEmptySources(AbstractSkipEmptyWorkStep.java:125)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:56)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:36)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.execute(HandleStaleOutputsStep.java:75)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.execute(HandleStaleOutputsStep.java:41)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$execute$0(AssignMutableWorkspaceStep.java:35)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:289)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:31)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:22)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:48)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:35)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:61)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:127)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:116)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
+
+
+BUILD FAILED in 28m 30s
+520 actionable tasks: 413 executed, 107 from cache
+Configuration cache entry stored.
