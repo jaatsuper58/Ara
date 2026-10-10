@@ -8,3 +8,24 @@ plugins {
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.hilt) apply false
 }
+
+// Deduplicate META-INF entries across every Android module (main + androidTest
+// variants): BouncyCastle and jspecify both ship an OSGI manifest under
+// META-INF/versions/9, which breaks resource merging.
+subprojects {
+    afterEvaluate {
+        if (extensions.findByName("android") != null) {
+            extensions.configure<com.android.build.gradle.BaseExtension>("android") {
+                packagingOptions {
+                    resources.excludes.addAll(
+                        setOf(
+                            "META-INF/AL2.0",
+                            "META-INF/LGPL2.1",
+                            "META-INF/versions/9/OSGI-INF/MANIFEST.MF",
+                        ),
+                    )
+                }
+            }
+        }
+    }
+}
