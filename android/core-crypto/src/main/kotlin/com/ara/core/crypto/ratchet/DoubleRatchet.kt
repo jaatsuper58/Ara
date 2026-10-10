@@ -3,7 +3,6 @@ package com.ara.core.crypto.ratchet
 import com.ara.core.crypto.primitives.Crypto
 import com.ara.core.crypto.keys.B64Serializer
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.encodeToString
 
 /**
  * Double Ratchet header: the sender's current ratchet public key, the length of

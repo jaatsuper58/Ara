@@ -15,7 +15,6 @@ import com.ara.core.crypto.session.SessionCodec
 import java.util.Base64
 import javax.inject.Inject
 import javax.inject.Singleton
-import kotlinx.serialization.encodeToString
 
 /** Room-backed double-ratchet session persistence (inside the encrypted DB). */
 @Singleton
