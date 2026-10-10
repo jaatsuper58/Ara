@@ -35,6 +35,7 @@ import com.ara.core.db.entity.CallLogEntity
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import androidx.compose.material3.Scaffold
 
 /** §7.5 — Calls tab: call log, tap-to-call, missed-call badges. */
 @Composable

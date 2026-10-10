@@ -93,6 +93,11 @@ class CallManager @Inject constructor(
     private var audioTrack: AudioTrack? = null
     private var localVideoTrackRef: VideoTrack? = null
 
+    var isMuted: Boolean = false
+        private set
+    var isCameraOn: Boolean = true
+        private set
+
     private var iceCandidates: MutableList<IceCandidate> = mutableListOf()
     private var pendingRemoteAnswer: SessionDescription? = null
     private var governor = LowBandwidthGovernor { kbps -> applyMaxBitrate(kbps) }
@@ -426,12 +431,17 @@ class CallManager @Inject constructor(
                     direction = "INCOMING",
                     status = status,
                     startedAt = s.startedAt,
-                    durationMs = System.currentTimeMillis() -            status = status,
-                    startedAt = s.startedAt,
                     durationMs = System.currentTimeMillis() - s.startedAt,
                 )
             )
         }
+    }
+
+    fun detachRenderers() {
+        runCatching { localVideoTrackRef?.removeSink(localRenderer ?: return) }
+        runCatching { _remoteVideoTrack.value?.removeSink(remoteRenderer ?: return) }
+        localRenderer = null
+        remoteRenderer = null
     }
 
     fun attachRenderers(local: SurfaceViewRenderer?, remote: SurfaceViewRenderer?) {
