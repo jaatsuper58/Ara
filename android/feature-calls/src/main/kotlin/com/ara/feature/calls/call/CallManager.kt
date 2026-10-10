@@ -98,7 +98,7 @@ class CallManager @Inject constructor(
     private var governor = LowBandwidthGovernor { kbps -> applyMaxBitrate(kbps) }
     private var statsJob: Job? = null
     private var currentCallId: String = ""
-    private var incomingTimeoutJob: Job? = null""
+    private var incomingTimeoutJob: Job? = null
 
     fun start() {
         appScope.launch {
