@@ -11,6 +11,7 @@ import javax.crypto.SecretKey
 import javax.crypto.spec.GCMParameterSpec
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlinx.serialization.encodeToString
 
 /**
  * Stores small secrets (identity keys, DB passphrase) encrypted at rest with an

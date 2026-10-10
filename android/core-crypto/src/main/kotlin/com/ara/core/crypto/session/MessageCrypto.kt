@@ -144,9 +144,15 @@ object SafetyNumber {
      * six space-separated 10-digit groups (60 digits, like Signal).
      */
     fun compute(myId: String, myIdentity: ByteArray, theirId: String, theirIdentity: ByteArray): String {
-        val (firstId, firstKey, secondId, secondKey) =
-            if (myId <= theirId) arrayOf(myId, myIdentity, theirId, theirIdentity)
-            else arrayOf(theirId, theirIdentity, myId, myIdentity)
+        val firstId: String
+        val firstKey: ByteArray
+        val secondId: String
+        val secondKey: ByteArray
+        if (myId <= theirId) {
+            firstId = myId; firstKey = myIdentity; secondId = theirId; secondKey = theirIdentity
+        } else {
+            firstId = theirId; firstKey = theirIdentity; secondId = myId; secondKey = myIdentity
+        }
 
         val buffer = java.io.ByteArrayOutputStream().apply {
             write(firstId.toByteArray(Charsets.UTF_8))

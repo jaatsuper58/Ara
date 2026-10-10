@@ -21,6 +21,7 @@ import com.ara.core.net.ws.SignalingClient
 import com.ara.core.net.ws.SignalingOut
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import java.security.SecureRandom
 import java.util.Base64

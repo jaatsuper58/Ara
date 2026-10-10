@@ -11,10 +11,11 @@ import com.ara.core.db.entity.CryptoSessionEntity
 import com.ara.core.db.entity.RemoteIdentityEntity
 import com.ara.core.db.entity.SenderKeyCoverageEntity
 import com.ara.core.db.entity.SenderKeyEntity
-import com.ara.core.db.session.SessionCodec
+import com.ara.core.crypto.session.SessionCodec
 import java.util.Base64
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlinx.serialization.encodeToString
 
 /** Room-backed double-ratchet session persistence (inside the encrypted DB). */
 @Singleton

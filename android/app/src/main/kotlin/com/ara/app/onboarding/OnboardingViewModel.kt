@@ -20,6 +20,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import java.util.UUID
 import javax.inject.Inject
+import kotlinx.serialization.encodeToString
 
 /**
  * §7.1 — Onboarding: phone-number-free signup. A unique Ara ID is generated on

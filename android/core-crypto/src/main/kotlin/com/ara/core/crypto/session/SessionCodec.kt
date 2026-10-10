@@ -3,6 +3,7 @@ package com.ara.core.crypto.session
 import com.ara.core.crypto.ratchet.RatchetState
 import com.ara.core.crypto.wire.WireJson
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import java.util.Base64
 

@@ -1,4 +1,4 @@
-package com.ara.core.crypto.wire
+package com.ara.core.crypto.keys
 
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerialName
@@ -9,6 +9,7 @@ import kotlinx.serialization.descriptors.SerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import java.util.Base64
+import kotlinx.serialization.encodeToString
 
 /** JSON/B64 codec for raw key material and ciphertext inside protocol messages. */
 object B64Serializer : KSerializer<ByteArray> {
