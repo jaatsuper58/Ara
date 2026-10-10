@@ -27,6 +27,7 @@ import kotlinx.serialization.encodeToString
 import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Singleton
+import com.ara.core.db.dao.AttachmentDao
 
 /**
  * Receive path: consumes gateway events, decrypts envelopes, writes to the
@@ -41,6 +42,7 @@ class IncomingProcessor @Inject constructor(
     private val chatDao: ChatDao,
     private val messageDao: MessageDao,
     private val contactDao: ContactDao,
+    private val attachmentDao: AttachmentDao,
     private val accountRepository: AccountRepository,
 ) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
@@ -77,13 +79,13 @@ class IncomingProcessor @Inject constructor(
             "1to1" -> {
                 val wire = WireJson.json.decodeFromString(WireMessage.serializer(), envelope.payload)
                 val bytes = crypto.decryptDirect(envelope.sender, wire)
-                val payload = ChatPayloadJson.json.decodeFromString(ChatPayload.serializer(), bytes)
+                val payload = ChatPayloadJson.json.decodeFromString(ChatPayload.serializer(), bytes.decodeToString())
                 handlePayload(payload, chatId = ChatIds.direct(me, envelope.sender), sender = envelope.sender, ackRef = envelope.id)
             }
             "group" -> {
                 val wire = WireJson.json.decodeFromString(SenderKeyWire.serializer(), envelope.payload)
                 val bytes = crypto.decryptGroup(envelope.sender, wire)
-                val payload = ChatPayloadJson.json.decodeFromString(ChatPayload.serializer(), bytes)
+                val payload = ChatPayloadJson.json.decodeFromString(ChatPayload.serializer(), bytes.decodeToString())
                 handlePayload(payload, chatId = wire.groupId, sender = envelope.sender, ackRef = envelope.id)
             }
         }
@@ -170,9 +172,7 @@ class IncomingProcessor @Inject constructor(
                         expireAt = disappearingDeadline(chatId, now),
                     )
                 )
-                if (payload.fileId != null) {
-                    messageDao.insert(messageId = messageId) // placeholder removed by compiler? no — see below
-                }
+                if (payload.fileId != null) insertRemoteAttachment(messageId, chatId, payload)
                 chatDao.touchLastMessage(chatId, mediaPreview(payload), now)
                 chatDao.bumpUnread(chatId, 1)
                 signaling.send(SignalingOut.AckDelivered(to = sender, messageId = ackRef))

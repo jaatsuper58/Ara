@@ -68,6 +68,7 @@ import com.ara.core.ui.theme.outgoingBubbleColor
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import androidx.compose.material3.TextButton
 
 /**
  * §7.3 — Chat thread: bubbles, reply/reaction overlay, attachment picker,
@@ -422,7 +423,7 @@ private fun InputBar(
                             awaitRelease()
                         } finally {
                             // Release without sending on tap; long-press release sends.
-                            onRecordEnd(send = true)
+                            onRecordEnd(true)
                         }
                     },
                 )
@@ -477,6 +478,7 @@ private fun MessageActionsSheet(
 }
 
 @Composable
+@OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 private fun AttachmentSheet(
     onDismiss: () -> Unit,
     onPickFile: () -> Unit,

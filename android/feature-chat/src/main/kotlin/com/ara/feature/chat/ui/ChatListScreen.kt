@@ -44,6 +44,7 @@ import com.ara.core.ui.components.UnreadBadge
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import androidx.compose.material3.OutlinedTextField
 
 /** §7.2 — Chat list: pinned chats on top, unread badges, long-press swipe-style actions. */
 @OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)

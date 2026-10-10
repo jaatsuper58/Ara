@@ -31,6 +31,7 @@ import javax.crypto.spec.GCMParameterSpec
 import javax.crypto.spec.SecretKeySpec
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlinx.coroutines.async
 
 /**
  * Chat repository: the message send pipeline (spec Phase 4/5).
@@ -127,7 +128,7 @@ class ChatRepository @Inject constructor(
             }
         }
 
-    private suspend fun sendDirect(peerId: String, payload: ChatPayload, disappearingSeconds: Long): AppResult<Unit> {
+    private suspend fun sendDirect(peerId: String, payload: ChatPayload, messageId: String = UUID.randomUUID().toString()): AppResult<Unit> {
         val bytes = ChatPayloadJson.json.encodeToString(payload).toByteArray()
         val wire = try {
             crypto.encryptDirect(peerId, bytes)
@@ -137,16 +138,14 @@ class ChatRepository @Inject constructor(
         val envelope = Envelope(
             // The relay id doubles as the delivery-ack reference: the recipient echoes
             // it back in ack.delivered and it maps to our local message row.
-            id = messageId ?: UUID.randomUUID().toString(),
+            id = messageId,
             sender = myId,
             recipient = peerId,
             payload = WireJson.json.encodeToString(WireMessage.serializer(), wire),
             type = "1to1",
         )
         return signaling.send(SignalingOut.EnvelopeSend(envelope)).onSuccess {
-            messageDao.setStatusWhere(peerId = peerId, chatId = "", status = "SENT", from = listOf("PENDING"))
-            // Narrow: only the message we just inserted should flip to SENT; the query above
-            // would over-match, so flip by id via the caller-supplied message instead.
+            messageDao.setStatus(messageId, "SENT")
         }
     }
 
@@ -286,7 +285,7 @@ class ChatRepository @Inject constructor(
             val chunkCount = (bytes.size + chunkSize - 1) / chunkSize
             val init = filesApi.initUpload(FilesApi.FileInitRequest(bytes.size.toLong(), chunkCount, chunkSize))
             (0 until chunkCount).map { index ->
-                kotlinx.coroutines.async(Dispatchers.IO) {
+                async(Dispatchers.IO) {
                     val start = index * chunkSize
                     val end = minOf(start + chunkSize, bytes.size)
                     val plain = bytes.copyOfRange(start, end)
@@ -308,7 +307,7 @@ class ChatRepository @Inject constructor(
             val chunkCount = ((sizeBytes + chunkSize - 1) / chunkSize).toInt()
             val out = java.io.ByteArrayOutputStream(sizeBytes.toInt())
             (0 until chunkCount).map { index ->
-                kotlinx.coroutines.async(Dispatchers.IO) {
+                async(Dispatchers.IO) {
                     filesApi.downloadChunk(fileId, index).use { body ->
                         val raw = body.bytes()
                         val nonce = raw.copyOfRange(0, 12)
@@ -342,6 +341,7 @@ class ChatRepository @Inject constructor(
             "IMAGE" -> "📷 Photo"; "VIDEO" -> "🎥 Video"; "AUDIO" -> "🎙 Voice note"
             "LOCATION" -> "📍 Location"; "CONTACT" -> "👤 Contact"; else -> "📄 File"
         }
+        is ChatPayload.Sticker -> payload.emoji + " Sticker"
         is ChatPayload.SenderKeyDist -> ""
     }
 

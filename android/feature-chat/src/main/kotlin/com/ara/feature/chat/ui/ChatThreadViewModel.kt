@@ -26,6 +26,7 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import java.util.Base64
 import javax.inject.Inject
+import kotlinx.coroutines.flow.map
 
 @OptIn(ExperimentalCoroutinesApi::class)
 @HiltViewModel
@@ -52,6 +53,11 @@ class ChatThreadViewModel @Inject constructor(
     val messages: StateFlow<List<MessageEntity>> = chatDao.observeById(chatId)
         .flatMapLatest { chat -> if (chat == null) flowOf(emptyList()) else messageDao.observeChat(chatId) }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+
+    val attachments: StateFlow<Map<String, List<com.ara.core.db.entity.AttachmentEntity>>> =
+        attachmentDao.observeForChat(chatId)
+            .map { rows -> rows.groupBy { it.messageId } }
+            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyMap())
 
     val typing: StateFlow<Boolean> = incoming.typingPeers
         .flatMapLatest { map -> flowOf(map[chatId] == true) }

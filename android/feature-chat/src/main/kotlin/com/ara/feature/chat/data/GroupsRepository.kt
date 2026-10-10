@@ -6,10 +6,10 @@ import com.ara.core.common.AppResult
 import com.ara.core.db.dao.ChatDao
 import com.ara.core.db.entity.ChatEntity
 import com.ara.core.db.entity.GroupMemberEntity
-import com.ara.core.net.api.AddMembersRequest
-import com.ara.core.net.api.CreateGroupRequest
+import com.ara.core.net.dto.AddMembersRequest
+import com.ara.core.net.dto.CreateGroupRequest
 import com.ara.core.net.api.GroupsApi
-import com.ara.core.net.api.PatchGroupRequest
+import com.ara.core.net.dto.PatchGroupRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.util.UUID

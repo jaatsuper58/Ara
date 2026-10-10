@@ -50,11 +50,12 @@ class VoiceNoteRecorder(
         if (it == null) outputFile?.delete()
     }
 
-    fun cancel() {
+    fun cancel(): File? {
         runCatching { recorder?.stop() }
         recorder?.release()
         recorder = null
         outputFile?.delete()
         outputFile = null
+        return null
     }
 }
