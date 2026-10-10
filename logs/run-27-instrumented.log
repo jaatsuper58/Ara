@@ -1,0 +1,146 @@
+Downloading https://services.gradle.org/distributions/gradle-8.10.2-bin.zip
+.............10%.............20%.............30%.............40%.............50%.............60%.............70%.............80%.............90%.............100%
+
+Welcome to Gradle 8.10.2!
+
+Here are the highlights of this release:
+ - Support for Java 23
+ - Faster configuration cache
+ - Better configuration cache reports
+
+For more details see https://docs.gradle.org/8.10.2/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+Calculating task graph as no cached configuration is available for tasks: :core-database:connectedDebugAndroidTest
+> Task :core-common:preBuild UP-TO-DATE
+> Task :core-common:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core-crypto:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core-database:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core-crypto:preBuild UP-TO-DATE
+> Task :core-database:preBuild UP-TO-DATE
+> Task :core-common:preDebugBuild UP-TO-DATE
+> Task :core-crypto:preDebugBuild UP-TO-DATE
+> Task :core-common:generateDebugResValues
+> Task :core-crypto:generateDebugResValues
+> Task :core-crypto:generateDebugResources
+> Task :core-common:javaPreCompileDebug
+> Task :core-database:preDebugBuild UP-TO-DATE
+> Task :core-common:generateDebugResources
+> Task :core-database:generateDebugResValues FROM-CACHE
+> Task :core-database:generateDebugResources FROM-CACHE
+> Task :core-common:packageDebugResources
+> Task :core-crypto:packageDebugResources
+> Task :core-database:packageDebugResources
+> Task :core-crypto:javaPreCompileDebug
+> Task :core-crypto:parseDebugLocalResources
+> Task :core-database:parseDebugLocalResources
+> Task :core-common:parseDebugLocalResources
+> Task :core-database:javaPreCompileDebug
+> Task :core-crypto:generateDebugRFile
+> Task :core-database:generateDebugRFile
+> Task :core-common:generateDebugRFile
+> Task :core-common:writeDebugAarMetadata
+> Task :core-crypto:writeDebugAarMetadata
+> Task :core-database:preDebugAndroidTestBuild UP-TO-DATE
+> Task :core-database:writeDebugAarMetadata
+> Task :core-common:compileDebugLibraryResources
+> Task :core-database:compileDebugLibraryResources FROM-CACHE
+> Task :core-database:generateDebugAndroidTestResValues FROM-CACHE
+> Task :core-crypto:compileDebugLibraryResources
+> Task :core-database:generateDebugAndroidTestResources
+> Task :core-database:mapDebugAndroidTestSourceSetPaths
+> Task :core-common:extractDeepLinksDebug
+> Task :core-database:checkDebugAndroidTestAarMetadata
+> Task :core-crypto:extractDeepLinksDebug FROM-CACHE
+> Task :core-common:processDebugManifest
+> Task :core-database:extractDeepLinksDebug FROM-CACHE
+> Task :core-crypto:processDebugManifest
+> Task :core-database:javaPreCompileDebugAndroidTest FROM-CACHE
+> Task :core-database:processDebugManifest
+> Task :core-common:mergeDebugShaders
+> Task :core-common:compileDebugShaders NO-SOURCE
+> Task :core-common:generateDebugAssets UP-TO-DATE
+> Task :core-common:packageDebugAssets
+> Task :core-crypto:mergeDebugShaders
+> Task :core-crypto:compileDebugShaders NO-SOURCE
+> Task :core-crypto:generateDebugAssets UP-TO-DATE
+> Task :core-crypto:packageDebugAssets
+> Task :core-database:mergeDebugAndroidTestShaders
+> Task :core-database:compileDebugAndroidTestShaders NO-SOURCE
+> Task :core-database:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :core-database:mergeDebugShaders
+> Task :core-database:compileDebugShaders NO-SOURCE
+> Task :core-database:generateDebugAssets UP-TO-DATE
+> Task :core-database:packageDebugAssets
+> Task :core-database:processDebugAndroidTestManifest
+> Task :core-database:desugarDebugAndroidTestFileDependencies
+> Task :core-database:mergeDebugAndroidTestAssets
+> Task :core-database:compressDebugAndroidTestAssets
+> Task :core-common:mergeDebugJniLibFolders
+> Task :core-common:mergeDebugNativeLibs NO-SOURCE
+> Task :core-common:copyDebugJniLibsProjectOnly
+> Task :core-crypto:mergeDebugJniLibFolders
+> Task :core-crypto:mergeDebugNativeLibs NO-SOURCE
+> Task :core-crypto:copyDebugJniLibsProjectOnly
+> Task :core-database:mergeDebugAndroidTestResources
+> Task :core-database:mergeDebugJniLibFolders
+> Task :core-database:mergeDebugNativeLibs NO-SOURCE
+> Task :core-database:copyDebugJniLibsProjectOnly
+> Task :core-database:mergeDebugAndroidTestJniLibFolders
+> Task :core-database:checkDebugAndroidTestDuplicateClasses
+> Task :core-common:compileDebugKotlin
+> Task :core-common:compileDebugJavaWithJavac NO-SOURCE
+> Task :core-common:bundleLibCompileToJarDebug
+> Task :core-database:mergeDebugAndroidTestNativeLibs
+> Task :core-common:bundleLibRuntimeToJarDebug
+> Task :core-common:processDebugJavaRes
+> Task :core-common:bundleLibRuntimeToDirDebug
+
+> Task :core-database:stripDebugAndroidTestDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libsqlcipher.so.
+
+> Task :core-database:processDebugAndroidTestResources
+> Task :core-database:mergeExtDexDebugAndroidTest
+> Task :core-database:validateSigningDebugAndroidTest
+> Task :core-database:writeDebugAndroidTestSigningConfigVersions
+> Task :core-crypto:kspDebugKotlin
+> Task :core-crypto:compileDebugKotlin
+> Task :core-crypto:processDebugJavaRes
+> Task :core-crypto:compileDebugJavaWithJavac
+> Task :core-crypto:transformDebugClassesWithAsm
+> Task :core-crypto:bundleLibCompileToJarDebug
+> Task :core-crypto:bundleLibRuntimeToJarDebug
+> Task :core-crypto:bundleLibRuntimeToDirDebug
+> Task :core-database:kspDebugKotlin
+> Task :core-database:compileDebugKotlin
+> Task :core-database:processDebugJavaRes
+> Task :core-database:compileDebugJavaWithJavac
+> Task :core-database:transformDebugClassesWithAsm
+> Task :core-database:bundleLibCompileToJarDebug
+> Task :core-database:bundleLibRuntimeToJarDebug
+> Task :core-database:bundleLibRuntimeToDirDebug
+> Task :core-database:mergeLibDexDebugAndroidTest
+> Task :core-database:kspDebugAndroidTestKotlin
+> Task :core-database:compileDebugAndroidTestKotlin
+> Task :core-database:compileDebugAndroidTestJavaWithJavac NO-SOURCE
+> Task :core-database:hiltAggregateDepsDebugAndroidTest
+> Task :core-database:hiltJavaCompileDebugAndroidTest NO-SOURCE
+> Task :core-database:processDebugAndroidTestJavaRes
+> Task :core-database:transformDebugAndroidTestClassesWithAsm
+> Task :core-database:dexBuilderDebugAndroidTest
+> Task :core-database:mergeDebugAndroidTestGlobalSynthetics
+> Task :core-database:mergeProjectDexDebugAndroidTest
+> Task :core-database:mergeDebugAndroidTestJavaResource
+> Task :core-database:packageDebugAndroidTest
+> Task :core-database:createDebugAndroidTestApkListingFileRedirect
+[EmulatorConsole]: Failed to start Emulator console for 5554
+
+> Task :core-database:connectedDebugAndroidTest
+Starting 3 tests on emulator-5554 - 14
+
+Finished 3 tests on emulator-5554 - 14
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__reactivecircus_android-emulator-runner-1791625146455.json
+
+BUILD SUCCESSFUL in 3m 6s
+95 actionable tasks: 88 executed, 7 from cache
+Configuration cache entry stored.
