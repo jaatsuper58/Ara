@@ -1,0 +1,31 @@
+name: backend-ci
+
+on:
+  push:
+    branches: ["**"]
+    paths: ["backend/**", ".github/workflows/backend.yml"]
+  pull_request:
+    paths: ["backend/**", ".github/workflows/backend.yml"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Unit + integration tests (auth, signaling relay, file relay)
+        run: npm test
+      - name: Privacy audit — no message-content storage in schema
+        run: |
+          ! grep -rniE "message.*(body|content|plaintext)|plaintext" backend/migrations/ || \
+            (echo '::error::migrations must not contain message-content columns' && exit 1)

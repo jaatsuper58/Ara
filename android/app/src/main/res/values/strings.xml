@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ara</string>
+    <string name="new_message">New message</string>
+    <string name="call_in_progress">Ara call in progress</string>
+    <string name="cd_back">Back</string>
+    <string name="cd_send">Send</string>
+    <string name="cd_attach">Attach</string>
+    <string name="cd_hangup">Hang up</string>
+    <string name="cd_mute">Mute</string>
+</resources>

@@ -1,0 +1,106 @@
+# Ara dev/staging stack.
+# Message content never transits any durable store here: Postgres holds
+# account/membership metadata only; the file relay keeps encrypted chunks in a
+# tmpfs-backed cache purged on delivery or TTL.
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ara
+      POSTGRES_PASSWORD: ara-dev-only
+      POSTGRES_DB: ara
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./backend/migrations:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ara"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  auth:
+    build:
+      context: ./backend
+    command: ["node", "dist/services/auth/main.js"]
+    environment:
+      PORT: 8080
+      JWT_SECRET: ${JWT_SECRET:-dev-insecure-secret-change-me}
+      DATABASE_URL: postgres://ara:ara-dev-only@postgres:5432/ara
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis: { condition: service_healthy }
+    ports: ["8081:8080"]
+
+  signaling:
+    build:
+      context: ./backend
+    command: ["node", "dist/services/signaling/main.js"]
+    environment:
+      PORT: 8080
+      JWT_SECRET: ${JWT_SECRET:-dev-insecure-secret-change-me}
+      DATABASE_URL: postgres://ara:ara-dev-only@postgres:5432/ara
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis: { condition: service_healthy }
+    ports: ["8082:8080"]
+
+  presence:
+    build:
+      context: ./backend
+    command: ["node", "dist/services/presence/main.js"]
+    environment:
+      PORT: 8080
+      JWT_SECRET: ${JWT_SECRET:-dev-insecure-secret-change-me}
+      DATABASE_URL: postgres://ara:ara-dev-only@postgres:5432/ara
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      redis: { condition: service_healthy }
+    ports: ["8083:8080"]
+
+  file-relay:
+    build:
+      context: ./backend
+    command: ["node", "dist/services/file-relay/main.js"]
+    environment:
+      PORT: 8080
+      JWT_SECRET: ${JWT_SECRET:-dev-insecure-secret-change-me}
+      REDIS_URL: redis://redis:6379
+    tmpfs:
+      - /tmp/ara-files:size=2g,exec=0
+    depends_on:
+      redis: { condition: service_healthy }
+    ports: ["8084:8080"]
+
+  push:
+    build:
+      context: ./backend
+    command: ["node", "dist/services/push/main.js"]
+    environment:
+      PORT: 8080
+      JWT_SECRET: ${JWT_SECRET:-dev-insecure-secret-change-me}
+      DATABASE_URL: postgres://ara:ara-dev-only@postgres:5432/ara
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      postgres: { condition: service_healthy }
+    ports: ["8085:8080"]
+
+  # NAT traversal for WebRTC calls (spec §3 Infra).
+  coturn:
+    image: coturn/coturn:latest
+    network_mode: host
+    volumes:
+      - ./deploy/turnserver.conf:/etc/coturn/turnserver.conf:ro
+
+volumes:
+  pgdata:

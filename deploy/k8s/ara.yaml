@@ -1,0 +1,162 @@
+# Ara on Kubernetes — metadata-only tier behind an LB with WebSocket support.
+# Message content is never stored in this cluster: the file relay uses emptyDir
+# (node-local, purged on delivery/TTL). For production: manage secrets out of
+# band (sealed-secrets / external-secrets), add NetworkPolicies, and run
+# Postgres/Redis on managed services.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ara
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ara-secrets
+  namespace: ara
+type: Opaque
+stringData:
+  JWT_SECRET: "REPLACE_VIA_SEALED_SECRETS"
+  DATABASE_URL: "postgres://ara:REPLACE@postgres:5432/ara"
+  REDIS_URL: "redis://redis:6379"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ara-auth
+  namespace: ara
+spec:
+  replicas: 2
+  selector: { matchLabels: { app: ara-auth } }
+  template:
+    metadata: { labels: { app: ara-auth } }
+    spec:
+      containers:
+        - name: auth
+          image: ghcr.io/your-org/ara-backend:latest
+          command: ["node", "dist/services/auth/main.js"]
+          ports: [{ containerPort: 8080 }]
+          envFrom: [{ secretRef: { name: ara-secrets } }]
+          readinessProbe:
+            httpGet: { path: /v1/health, port: 8080 }
+            initialDelaySeconds: 3
+          resources:
+            requests: { cpu: 100m, memory: 128Mi }
+            limits: { cpu: "1", memory: 512Mi }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ara-auth
+  namespace: ara
+spec:
+  selector: { app: ara-auth }
+  ports: [{ port: 80, targetPort: 8080 }]
+---
+# Signaling: horizontally scaled behind the ingress; Redis pub/sub fans out
+# across replicas. HPA scales on connection load.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ara-signaling
+  namespace: ara
+spec:
+  replicas: 3
+  selector: { matchLabels: { app: ara-signaling } }
+  template:
+    metadata: { labels: { app: ara-signaling } }
+    spec:
+      containers:
+        - name: signaling
+          image: ghcr.io/your-org/ara-backend:latest
+          command: ["node", "dist/services/signaling/main.js"]
+          ports: [{ containerPort: 8080 }]
+          envFrom: [{ secretRef: { name: ara-secrets } }]
+          readinessProbe:
+            httpGet: { path: /v1/health, port: 8080 }
+            initialDelaySeconds: 3
+          resources:
+            requests: { cpu: 200m, memory: 256Mi }
+            limits: { cpu: "2", memory: 1Gi }
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: ara-signaling
+  namespace: ara
+spec:
+  scaleTargetRef: { apiVersion: apps/v1, kind: Deployment, name: ara-signaling }
+  minReplicas: 3
+  maxReplicas: 20
+  metrics:
+    - type: Resource
+      resource: { name: cpu, target: { type: Utilization, averageUtilization: 65 } }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ara-signaling
+  namespace: ara
+spec:
+  selector: { app: ara-signaling }
+  ports: [{ port: 80, targetPort: 8080 }]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ara-file-relay
+  namespace: ara
+spec:
+  replicas: 2
+  selector: { matchLabels: { app: ara-file-relay } }
+  template:
+    metadata: { labels: { app: ara-file-relay } }
+    spec:
+      containers:
+        - name: file-relay
+          image: ghcr.io/your-org/ara-backend:latest
+          command: ["node", "dist/services/file-relay/main.js"]
+          ports: [{ containerPort: 8080 }]
+          envFrom: [{ secretRef: { name: ara-secrets } }]
+          volumeMounts: [{ name: cache, mountPath: /tmp/ara-files }]
+          volumes:
+            - name: cache
+              emptyDir: { medium: Memory, sizeLimit: 4Gi }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ara-file-relay
+  namespace: ara
+spec:
+  selector: { app: ara-file-relay }
+  ports: [{ port: 80, targetPort: 8080 }]
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ara
+  namespace: ara
+  annotations:
+    # WebSocket support + generous timeouts for long-lived signaling connections.
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts: [api.ara.example, signal.ara.example]
+      secretName: ara-tls
+  rules:
+    - host: api.ara.example
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend: { service: { name: ara-auth, port: { number: 80 } } }
+    - host: signal.ara.example
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend: { service: { name: ara-signaling, port: { number: 80 } } }
