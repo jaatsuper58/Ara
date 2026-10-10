@@ -93,25 +93,35 @@ jobs:
       - name: Report instrumented test result
         if: always()
         run: |
+          {
+            echo "workspace listing:"
+            ls -la "$GITHUB_WORKSPACE" | head -20
+            echo "exit-code file:"
+            cat "$GITHUB_WORKSPACE/instrumented_exit_code" 2>&1 || true
+          } > "$GITHUB_WORKSPACE/instrumented_report.txt" 2>&1
           CODE=$(cat "$GITHUB_WORKSPACE/instrumented_exit_code" 2>/dev/null || echo 1)
-          echo "gradle exit code: $CODE"
+          echo "gradle exit code: $CODE" >> "$GITHUB_WORKSPACE/instrumented_report.txt"
           exit "$CODE"
 
       - name: Push instrumented log to ci-logs branch
-        if: failure()
+        if: always()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set +e
-          if [ -f ../android/instrumented.log ]; then tail -c 240000 ../android/instrumented.log > instrumented-tail.log;
-          elif [ -f android/instrumented.log ]; then tail -c 240000 android/instrumented.log > instrumented-tail.log;
-          elif [ -f instrumented.log ]; then tail -c 240000 instrumented.log > instrumented-tail.log;
-          else echo "no log captured" > instrumented-tail.log; fi
+          {
+            echo "=== report ==="
+            cat "$GITHUB_WORKSPACE/instrumented_report.txt" 2>/dev/null
+            echo "=== gradle log tail ==="
+            for f in ../android/instrumented.log android/instrumented.log instrumented.log; do
+              if [ -f "$f" ]; then tail -c 200000 "$f"; break; fi
+            done
+          } > instrumented-combined.log 2>&1
           SHA=$(git rev-parse HEAD)
           gh api -X POST "repos/${{ github.repository }}/git/refs" \
             -f ref=refs/heads/ci-logs -f sha="$SHA" >/dev/null 2>&1 || true
           sleep 2
-          B64=$(base64 -w0 instrumented-tail.log)
+          B64=$(base64 -w0 instrumented-combined.log)
           gh api -X PUT "repos/${{ github.repository }}/contents/logs/run-${{ github.run_number }}-instrumented.log" \
             -f message="ci instrumented log run ${{ github.run_number }}" \
             -f content="$B64" -f branch=ci-logs >/dev/null 2>&1 \
