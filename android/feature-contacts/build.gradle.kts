@@ -36,7 +36,7 @@ dependencies {
     ksp(libs.hilt.compiler)
     // QR: generate (core) + scan (embedded activity)
     implementation(libs.zxing.core)
-    implementation(libs.zxing.embed)
+    implementation(libs.zxing.embedded)
 
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
