@@ -63,7 +63,21 @@ data class SenderKeyDistribution(
     val distributionId: String,
     @Serializable(with = B64Serializer::class) val chainKeySeed: ByteArray,
     val iteration: Int,
-)
+) {
+    override fun equals(other: Any?): Boolean = other is SenderKeyDistribution &&
+        groupId == other.groupId &&
+        distributionId == other.distributionId &&
+        chainKeySeed.contentEquals(other.chainKeySeed) &&
+        iteration == other.iteration
+
+    override fun hashCode(): Int {
+        var result = groupId.hashCode()
+        result = 31 * result + distributionId.hashCode()
+        result = 31 * result + chainKeySeed.contentHashCode()
+        result = 31 * result + iteration
+        return result
+    }
+}
 
 object WireJson {
     val json: Json = Json {

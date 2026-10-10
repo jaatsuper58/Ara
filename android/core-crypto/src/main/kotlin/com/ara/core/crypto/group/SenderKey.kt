@@ -54,13 +54,15 @@ object SenderKeyCodec {
         val nonce = Crypto.generateNonce()
         val ciphertext = Crypto.aesGcmEncrypt(messageKey, nonce, plaintext, key.groupId.toByteArray())
         java.util.Arrays.fill(messageKey, 0)
-        return SenderKeyWire(
+        val wire = SenderKeyWire(
             groupId = key.groupId,
             distributionId = key.distributionId,
             iteration = key.iteration,
             nonce = nonce,
             ciphertext = ciphertext,
         )
+        key.iteration += 1 // every message derives a fresh key from the seed chain
+        return wire
     }
 
     fun decrypt(key: SenderKeyDistribution, wire: SenderKeyWire): ByteArray {
