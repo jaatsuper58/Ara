@@ -53,7 +53,7 @@ class SettingsViewModel @Inject constructor(
     fun setPasscode(passcode: String?) = viewModelScope.launch {
         val hash = passcode?.let { pc ->
             // Local PBKDF2 via the AppLockManager helper (injected in screen layer for prompt UX).
-            com.ara.feature.settings.security.AppLockManagerHash.hash(pc)
+            AppLockManagerHash.hash(pc)
         }
         prefsRepository.setPasscodeHash(hash)
         if (passcode != null) prefsRepository.setAppLock(true)

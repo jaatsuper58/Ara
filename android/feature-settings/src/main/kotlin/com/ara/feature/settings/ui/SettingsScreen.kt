@@ -102,8 +102,8 @@ fun SettingsScreen(
             HorizontalDivider(Modifier.padding(vertical = 8.dp))
 
             Text("Data & storage", style = MaterialTheme.typography.titleMedium)
-            ToggleRow("Auto-download on Wi-Fi", prefs.autoDownloadWifi, viewModel::setAutoDownloadWifi)
-            ToggleRow("Auto-download on mobile data", prefs.autoDownloadMobile, viewModel::setAutoDownloadMobile)
+            ToggleRow("Auto-download on Wi-Fi", checked = prefs.autoDownloadWifi, onChange = viewModel::setAutoDownloadWifi)
+            ToggleRow("Auto-download on mobile data", checked = prefs.autoDownloadMobile, onChange = viewModel::setAutoDownloadMobile)
             TextButton(onClick = { exportLauncher.launch("ara-export.json") }) { Text("Export my data (local JSON)") }
             HorizontalDivider(Modifier.padding(vertical = 8.dp))
 

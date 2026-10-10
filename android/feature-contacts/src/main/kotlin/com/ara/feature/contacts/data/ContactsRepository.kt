@@ -13,6 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
+import com.ara.core.common.AccountRepository
 
 /**
  * Contact management. Ara deliberately has NO contact-list upload (spec §2):
@@ -23,6 +24,7 @@ import javax.inject.Singleton
 class ContactsRepository @Inject constructor(
     private val contactDao: ContactDao,
     private val chatDao: ChatDao,
+    private val accountRepository: AccountRepository,
     private val authApi: AuthApi,
     private val crypto: MessageCrypto,
 ) {

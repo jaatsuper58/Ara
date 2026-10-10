@@ -56,7 +56,7 @@ class UserPrefsRepositoryImpl @Inject constructor(
     override suspend fun setAutoDownloadMobile(enabled: Boolean) = edit { it[Keys.AUTO_MOBILE] = enabled }
     override suspend fun setTypingIndicators(enabled: Boolean) = edit { it[Keys.TYPING] = enabled }
 
-    private suspend fun edit(block: (androidx.datastore.preferences.core.Preferences) -> androidx.datastore.preferences.core.Preferences) {
+    private suspend fun edit(block: (androidx.datastore.preferences.core.MutablePreferences) -> Unit) {
         context.settingsDataStore.edit(block)
     }
 }

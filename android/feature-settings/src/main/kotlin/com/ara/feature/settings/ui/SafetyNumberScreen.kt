@@ -75,6 +75,7 @@ class SafetyNumberViewModel @Inject constructor(
 }
 
 @Composable
+@OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 fun SafetyNumberScreen(onBack: () -> Unit, viewModel: SafetyNumberViewModel = hiltViewModel()) {
     val contacts by viewModel.contacts.collectAsStateWithLifecycle()
     val selected by viewModel.selected.collectAsStateWithLifecycle()
