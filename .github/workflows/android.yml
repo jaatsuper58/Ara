@@ -80,27 +80,23 @@ jobs:
           sudo udevadm trigger --name-match=kvm
       - name: Run instrumented tests on emulator
         uses: reactivecircus/android-emulator-runner@v2
+        continue-on-error: true
         with:
           api-level: 34
           arch: x86_64
           channel: stable
           boot-timeout: 900
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
-          # Single-line form (proven to execute); the gradle verdict is written to
-          # a file so emulator-console shutdown flakiness cannot mask it.
-          script: cd android && ./gradlew :core-database:connectedDebugAndroidTest --stacktrace 2>&1 | tee instrumented.log; echo ${PIPESTATUS[0]} > "$GITHUB_WORKSPACE/instrumented_exit_code"; exit 0
+          # Plain redirects + relative paths only (no PIPESTATUS / $GITHUB_WORKSPACE
+          # inside the action shell). The gradle verdict lands in a file at the repo
+          # root; the next step turns it into the authoritative job result.
+          script: cd android && ./gradlew :core-database:connectedDebugAndroidTest --stacktrace > instrumented.log 2>&1; echo $? > ../instrumented_exit_code; exit 0
 
       - name: Report instrumented test result
         if: always()
         run: |
-          {
-            echo "workspace listing:"
-            ls -la "$GITHUB_WORKSPACE" | head -20
-            echo "exit-code file:"
-            cat "$GITHUB_WORKSPACE/instrumented_exit_code" 2>&1 || true
-          } > "$GITHUB_WORKSPACE/instrumented_report.txt" 2>&1
           CODE=$(cat "$GITHUB_WORKSPACE/instrumented_exit_code" 2>/dev/null || echo 1)
-          echo "gradle exit code: $CODE" >> "$GITHUB_WORKSPACE/instrumented_report.txt"
+          echo "gradle exit code: $CODE" | tee -a "$GITHUB_WORKSPACE/android/instrumented.log"
           exit "$CODE"
 
       - name: Push instrumented log to ci-logs branch
