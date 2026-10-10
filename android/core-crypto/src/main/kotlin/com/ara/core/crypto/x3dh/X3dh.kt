@@ -4,7 +4,7 @@ import com.ara.core.crypto.keys.IdentityKeyPair
 import com.ara.core.crypto.keys.KeyBundle
 import com.ara.core.crypto.primitives.Crypto
 import com.ara.core.crypto.primitives.X3DH_F
-import com.ara.core.crypto.wire.B64Serializer
+import com.ara.core.crypto.keys.B64Serializer
 import kotlinx.serialization.Serializable
 
 /**

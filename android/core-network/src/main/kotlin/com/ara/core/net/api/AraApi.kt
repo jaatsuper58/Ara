@@ -1,6 +1,6 @@
 package com.ara.core.net.api
 
-import com.ara.core.crypto.wire.KeyBundle
+import com.ara.core.crypto.keys.KeyBundle
 import com.ara.core.net.dto.AccountResponse
 import com.ara.core.net.dto.AddMembersRequest
 import com.ara.core.net.dto.CreateAccountRequest

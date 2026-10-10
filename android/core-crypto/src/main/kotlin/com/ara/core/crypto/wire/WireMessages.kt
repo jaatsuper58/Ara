@@ -3,6 +3,7 @@ package com.ara.core.crypto.wire
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
+import com.ara.core.crypto.keys.B64Serializer
 
 /**
  * Encrypted transport messages exchanged inside `envelope.send/receive`.

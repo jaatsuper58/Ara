@@ -1,6 +1,6 @@
 package com.ara.core.net.dto
 
-import com.ara.core.crypto.wire.KeyBundle
+import com.ara.core.crypto.keys.KeyBundle
 import kotlinx.serialization.Serializable
 
 @Serializable

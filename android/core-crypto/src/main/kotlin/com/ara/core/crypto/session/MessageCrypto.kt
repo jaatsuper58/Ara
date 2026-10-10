@@ -23,8 +23,8 @@ import javax.inject.Singleton
 @Singleton
 class MessageCrypto @Inject constructor(
     sessionStore: SessionStore,
-    identityStore: IdentityKeyStore,
-    remoteIdentityStore: RemoteIdentityStore,
+    val identityStore: IdentityKeyStore,
+    val remoteIdentityStore: RemoteIdentityStore,
     senderKeyStore: SenderKeyStore,
     bundleFetcher: KeyBundleFetcher,
 ) {

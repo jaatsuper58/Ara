@@ -30,6 +30,7 @@ object SessionCodec {
     fun serialize(state: RatchetState): String {
         val b64 = Base64.getEncoder()
         return WireJson.json.encodeToString(
+            StateDto.serializer(),
             StateDto(
                 rootKey = b64.encodeToString(state.rootKey),
                 dhSelfPrivate = b64.encodeToString(state.dhSelfPrivate),
@@ -51,6 +52,7 @@ object SessionCodec {
 
     fun deserialize(json: String): RatchetState {
         val b64 = Base64.getDecoder()
+        val enc = Base64.getEncoder()
         val dto = WireJson.json.decodeFromString<StateDto>(json)
         return RatchetState(
             rootKey = b64.decode(dto.rootKey),
@@ -63,7 +65,7 @@ object SessionCodec {
             recvCount = dto.recvCount,
             previousSendCount = dto.previousSendCount,
             skippedKeys = dto.skipped.associate {
-                (b64.encodeToString(b64.decode(it.dhPub)) + ":" + it.n) to b64.decode(it.key)
+                (enc.encodeToString(b64.decode(it.dhPub)) + ":" + it.n) to b64.decode(it.key)
             }.toMutableMap(),
         )
     }

@@ -19,6 +19,7 @@ import kotlinx.serialization.json.Json
 import java.util.Base64
 import javax.inject.Inject
 import javax.inject.Singleton
+import com.ara.core.crypto.keys.OneTimePreKeyUpload
 
 /**
  * On-device identity/prekey management.

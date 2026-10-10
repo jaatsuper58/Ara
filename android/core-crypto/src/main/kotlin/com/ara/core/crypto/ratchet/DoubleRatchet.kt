@@ -1,7 +1,7 @@
 package com.ara.core.crypto.ratchet
 
 import com.ara.core.crypto.primitives.Crypto
-import com.ara.core.crypto.wire.B64Serializer
+import com.ara.core.crypto.keys.B64Serializer
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.encodeToString
 
