@@ -83,7 +83,27 @@ jobs:
         with:
           api-level: 34
           arch: x86_64
-          script: cd android && ./gradlew connectedDebugAndroidTest
+          script: cd android && ./gradlew connectedDebugAndroidTest --stacktrace 2>&1 | tee instrumented.log; exit ${PIPESTATUS[0]}
+
+      - name: Push instrumented log to ci-logs branch
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          if [ -f ../android/instrumented.log ]; then tail -c 240000 ../android/instrumented.log > instrumented-tail.log;
+          elif [ -f android/instrumented.log ]; then tail -c 240000 android/instrumented.log > instrumented-tail.log;
+          elif [ -f instrumented.log ]; then tail -c 240000 instrumented.log > instrumented-tail.log;
+          else echo "no log captured" > instrumented-tail.log; fi
+          SHA=$(git rev-parse HEAD)
+          gh api -X POST "repos/${{ github.repository }}/git/refs" \
+            -f ref=refs/heads/ci-logs -f sha="$SHA" >/dev/null 2>&1 || true
+          sleep 2
+          B64=$(base64 -w0 instrumented-tail.log)
+          gh api -X PUT "repos/${{ github.repository }}/contents/logs/run-${{ github.run_number }}-instrumented.log" \
+            -f message="ci instrumented log run ${{ github.run_number }}" \
+            -f content="$B64" -f branch=ci-logs >/dev/null 2>&1 \
+            && echo "instrumented log pushed to ci-logs branch" || echo "log push failed"
 
   release:
     name: Signed release build (Phase 11)
