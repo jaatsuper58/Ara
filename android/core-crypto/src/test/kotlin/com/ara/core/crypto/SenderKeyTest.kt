@@ -73,7 +73,7 @@ class SenderKeyStoreTest {
         store.saveOwned(first)
 
         val distribution = ensureOwned(store, "g", listOf("alice", "bob", "carol"))
-        assertEquals("alice,bob,carol", distribution.joinToString(",") { it })
+        assertEquals("alice,bob,carol", distribution!!.joinToString(",") { it })
         val again = ensureOwned(store, "g", listOf("alice", "bob", "carol"))
         assertNull(again)
     }

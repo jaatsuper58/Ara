@@ -73,11 +73,11 @@ class FakeIdentityKeyStore : IdentityKeyStore {
 }
 
 class FakeRemoteIdentityStore : RemoteIdentityStore {
-    val identities = mutableMapOf<String, RemoteIdentity>()
+    val identities = mutableMapOf<String, RemoteIdentityStore.RemoteIdentity>()
     override suspend fun saveRemoteIdentity(araId: String, identityX25519: ByteArray, identityEd25519: ByteArray) {
-        identities[araId] = RemoteIdentity(araId, identityX25519, identityEd25519)
+        identities[araId] = RemoteIdentityStore.RemoteIdentity(araId, identityX25519, identityEd25519)
     }
-    override suspend fun remoteIdentity(araId: String): RemoteIdentity? = identities[araId]
+    override suspend fun remoteIdentity(araId: String): RemoteIdentityStore.RemoteIdentity? = identities[araId]
     override suspend fun markVerified(araId: String, verified: Boolean) {
         identities[araId]?.let { identities[araId] = it.copy(verified = verified) }
     }
