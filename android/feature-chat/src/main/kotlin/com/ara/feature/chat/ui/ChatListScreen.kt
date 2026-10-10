@@ -15,13 +15,16 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Archive
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.GroupAdd
 import androidx.compose.material.icons.filled.NotificationsOff
 import androidx.compose.material.icons.filled.PushPin
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -43,42 +46,106 @@ import java.util.Date
 import java.util.Locale
 
 /** §7.2 — Chat list: pinned chats on top, unread badges, long-press swipe-style actions. */
+@OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 @Composable
 fun ChatListScreen(
     onOpenChat: (ChatEntity) -> Unit,
     viewModel: ChatListViewModel = hiltViewModel(),
 ) {
     val chats by viewModel.chats.collectAsStateWithLifecycle()
+    val groupError by viewModel.groupError.collectAsStateWithLifecycle()
+    var showNewGroup by remember { mutableStateOf(false) }
 
-    Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-        if (chats.isEmpty()) {
-            Column(
-                modifier = Modifier.fillMaxSize().padding(32.dp),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                Text("Welcome to Ara", style = MaterialTheme.typography.titleLarge)
-                Spacer(Modifier.padding(8.dp))
-                Text(
-                    "Add a contact by Ara ID or QR code to start an encrypted chat.",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
+    Scaffold(
+        floatingActionButton = {
+            FloatingActionButton(onClick = { showNewGroup = true }) {
+                Icon(Icons.Default.GroupAdd, contentDescription = "New group")
             }
-        } else {
-            LazyColumn(modifier = Modifier.fillMaxSize()) {
-                items(chats, key = { it.id }) { chat ->
-                    ChatRow(
-                        chat = chat,
-                        onClick = { onOpenChat(chat) },
-                        onPin = { viewModel.togglePin(chat) },
-                        onMute = { viewModel.toggleMute(chat) },
-                        onDelete = { viewModel.deleteChat(chat) },
+        },
+    ) { padding ->
+        Surface(modifier = Modifier.fillMaxSize().padding(padding), color = MaterialTheme.colorScheme.background) {
+            if (chats.isEmpty()) {
+                Column(
+                    modifier = Modifier.fillMaxSize().padding(32.dp),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    Text("Welcome to Ara", style = MaterialTheme.typography.titleLarge)
+                    Spacer(Modifier.padding(8.dp))
+                    Text(
+                        "Add a contact by Ara ID or QR code to start an encrypted chat.",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
+                }
+            } else {
+                LazyColumn(modifier = Modifier.fillMaxSize()) {
+                    groupError?.let {
+                        item {
+                            Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.labelSmall, modifier = Modifier.padding(horizontal = 16.dp))
+                        }
+                    }
+                    items(chats, key = { it.id }) { chat ->
+                        ChatRow(
+                            chat = chat,
+                            onClick = { onOpenChat(chat) },
+                            onPin = { viewModel.togglePin(chat) },
+                            onMute = { viewModel.toggleMute(chat) },
+                            onDelete = { viewModel.deleteChat(chat) },
+                        )
+                    }
                 }
             }
         }
     }
+
+    if (showNewGroup) {
+        NewGroupDialog(
+            onDismiss = { showNewGroup = false },
+            onCreate = { name, members ->
+                viewModel.createGroup(name, members) { chatId ->
+                    showNewGroup = false
+                    onOpenChat(
+                        ChatEntity(id = chatId, type = "GROUP", title = name.ifBlank { "Group" })
+                    )
+                }
+            },
+        )
+    }
+}
+
+@Composable
+private fun NewGroupDialog(onDismiss: () -> Unit, onCreate: (String, List<String>) -> Unit) {
+    var name by remember { mutableStateOf("") }
+    var members by remember { mutableStateOf("") }
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text("New group") },
+        text = {
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                OutlinedTextField(value = name, onValueChange = { name = it }, label = { Text("Group name") })
+                OutlinedTextField(
+                    value = members,
+                    onValueChange = { members = it },
+                    label = { Text("Member Ara IDs (comma-separated)") },
+                )
+                Text(
+                    "Up to ${com.ara.core.common.Constants.GROUP_MEMBER_LIMIT} members. Group messages use sender-key encryption.",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        },
+        confirmButton = {
+            TextButton(onClick = {
+                onCreate(
+                    name,
+                    members.split(",", ";").map { it.trim() }.filter { it.isNotBlank() },
+                )
+            }) { Text("Create") }
+        },
+        dismissButton = { TextButton(onClick = onDismiss) { Text("Cancel") } },
+    )
 }
 
 @OptIn(ExperimentalFoundationApi::class)

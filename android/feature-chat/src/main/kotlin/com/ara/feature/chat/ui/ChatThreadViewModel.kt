@@ -76,6 +76,11 @@ class ChatThreadViewModel @Inject constructor(
         }
     }
 
+    fun sendSticker(emoji: String) = viewModelScope.launch {
+        val chat = chat.value ?: return@launch
+        chatRepository.send(chat, ChatPayload.Sticker(emoji))
+    }
+
     fun sendVoiceNote(path: String, durationMs: Long) = viewModelScope.launch {
         val chat = chat.value ?: return@launch
         val bytes = java.io.File(path).readBytes()

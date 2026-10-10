@@ -46,9 +46,24 @@ import com.ara.core.ui.components.Avatar
 @Composable
 fun ContactsScreen(
     onOpenChat: (String, String) -> Unit,
-    onScanQr: () -> Unit,
+    onScanQr: () -> Unit = {},
     viewModel: ContactsViewModel = hiltViewModel(),
 ) {
+    // §7.4 — QR scan-to-add (zxing-embedded). onScanQr remains for hosts that
+    // want a custom scanner; the built-in ScanContract is wired by default.
+    val scanLauncher = androidx.activity.compose.rememberLauncherForActivityResult(
+        com.journeyapps.barcodescanner.ScanContract()
+    ) { result ->
+        result.contents?.let(viewModel::onScanResult)
+    }
+    val effectiveScan: () -> Unit = {
+        val options = com.journeyapps.barcodescanner.ScanOptions()
+            .setDesiredBarcodeFormats(com.journeyapps.barcodescanner.ScanOptions.QR_CODE)
+            .setPrompt("Scan an Ara QR code")
+            .setBeepEnabled(true)
+            .setOrientationLocked(true)
+        scanLauncher.launch(options)
+    }
     val contacts by viewModel.contacts.collectAsStateWithLifecycle()
     val myQr by viewModel.myQr.collectAsStateWithLifecycle()
     val addResult by viewModel.addResult.collectAsStateWithLifecycle()
@@ -65,8 +80,10 @@ fun ContactsScreen(
         Column(modifier = Modifier.fillMaxSize().padding(padding).padding(horizontal = 16.dp)) {
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
                 Text("Contacts", style = MaterialTheme.typography.titleLarge)
-                TextButton(onClick = { showQr = true }) { Text("My QR") }
-                TextButton(onClick = onScanQr) { Text("Scan") }
+                Row {
+                    TextButton(onClick = { showQr = true }) { Text("My QR") }
+                    TextButton(onClick = { effectiveScan() }) { Text("Scan") }
+                }
             }
 
             addResult?.let {

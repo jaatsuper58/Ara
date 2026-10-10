@@ -3,8 +3,14 @@ package com.ara.feature.chat.ui
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items as gridItems
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -44,9 +50,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
+import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.ara.core.db.entity.ChatEntity
@@ -66,10 +78,12 @@ import java.util.Locale
 fun ChatThreadScreen(
     onBack: () -> Unit,
     onStartCall: (ChatEntity, Boolean) -> Unit,
+    onOpenGroup: (String) -> Unit = {},
     viewModel: ChatThreadViewModel = hiltViewModel(),
 ) {
     val chat by viewModel.chat.collectAsStateWithLifecycle()
     val messages by viewModel.messages.collectAsStateWithLifecycle()
+    val attachments by viewModel.attachments.collectAsStateWithLifecycle()
     val typing by viewModel.typing.collectAsStateWithLifecycle()
     val error by viewModel.error.collectAsStateWithLifecycle()
     val context = LocalContext.current
@@ -81,6 +95,8 @@ fun ChatThreadScreen(
     var attachSheet by remember { mutableStateOf(false) }
     var topMenu by remember { mutableStateOf(false) }
     var forwardFor by remember { mutableStateOf<MessageEntity?>(null) }
+    var stickerSheet by remember { mutableStateOf(false) }
+    var viewing by remember { mutableStateOf<Pair<String, String>?>(null) } // path to mime
 
     val recorder = remember {
         VoiceNoteRecorder(context, java.io.File(context.cacheDir, "voice"))
@@ -162,6 +178,12 @@ fun ChatThreadScreen(
                             text = { Text(if (chat?.safeMode == true) "Disable safe mode" else "Enable safe mode") },
                             onClick = { viewModel.setSafeMode(chat?.safeMode != true); topMenu = false },
                         )
+                        if (chat?.type == "GROUP") {
+                            DropdownMenuItem(
+                                text = { Text("Group info") },
+                                onClick = { topMenu = false; onOpenGroup(chat?.id ?: return@DropdownMenuItem) },
+                            )
+                        }
                     }
                 },
             )
@@ -178,6 +200,9 @@ fun ChatThreadScreen(
                     MessageBubble(
                         message = message,
                         isMine = message.senderId == viewModel.myId,
+                        attachments = attachments[message.id].orEmpty(),
+                        onOpenMedia = { path, mime -> viewing = path to mime },
+                        onDownload = { att -> viewModel.downloadAttachment(att) {} },
                         onLongPress = { actionFor = message },
                     )
                 }
@@ -232,6 +257,7 @@ fun ChatThreadScreen(
                 AttachmentSheet(
                     onDismiss = { attachSheet = false },
                     onPickFile = { attachSheet = false; filePicker.launch("*/*") },
+                    onPickStickers = { attachSheet = false; stickerSheet = true },
                     onSendLocation = { attachSheet = false; viewModel.sendLocation(0.0, 0.0) },
                     onSendContact = { attachSheet = false; viewModel.sendContact(chat?.peerId ?: "") },
                 )
@@ -260,6 +286,15 @@ fun ChatThreadScreen(
             message = forwardFor!!,
         )
     }
+    if (stickerSheet) {
+        StickerSheet(onDismiss = { stickerSheet = false }, onPick = { emoji ->
+            stickerSheet = false
+            viewModel.sendSticker(emoji)
+        })
+    }
+    viewing?.let { (path, mime) ->
+        MediaViewerDialog(path = path, mime = mime, onDismiss = { viewing = null })
+    }
 }
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -267,32 +302,40 @@ fun ChatThreadScreen(
 private fun MessageBubble(
     message: MessageEntity,
     isMine: Boolean,
+    attachments: List<com.ara.core.db.entity.AttachmentEntity>,
+    onOpenMedia: (path: String, mime: String) -> Unit,
+    onDownload: (com.ara.core.db.entity.AttachmentEntity) -> Unit,
     onLongPress: () -> Unit,
 ) {
     val bubbleColor = if (isMine) outgoingBubbleColor() else MaterialTheme.colorScheme.surfaceVariant
     val alignment = if (isMine) Alignment.End else Alignment.Start
+    val attachment = attachments.firstOrNull()
 
     Column(modifier = Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 2.dp), horizontalAlignment = alignment) {
         Surface(color = bubbleColor, shape = MaterialTheme.shapes.medium) {
             Column(
                 modifier = Modifier
                     .widthIn(max = 300.dp)
-                    .combinedClickable(onClick = {}, onLongClick = onLongPress)
-                    .padding(10.dp)
-                    .pointerInput(message.id) {
-                        detectTapGestures(onLongPress = { onLongPress() })
-                    },
+                    .combinedClickable(
+                        onClick = {
+                            val local = attachment?.localPath
+                            if (local != null) onOpenMedia(local, attachment.mimeType)
+                        },
+                        onLongClick = onLongPress,
+                    )
+                    .padding(10.dp),
             ) {
                 if (message.deletedForEveryone) {
                     Text("This message was deleted", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 } else {
                     when (message.type) {
-                        "IMAGE" -> Text("📷 Photo", style = MaterialTheme.typography.bodyMedium)
-                        "VIDEO" -> Text("🎥 Video", style = MaterialTheme.typography.bodyMedium)
-                        "AUDIO" -> Text("🎙 Voice note", style = MaterialTheme.typography.bodyMedium)
+                        "STICKER" -> Text(message.body ?: " stickers", fontSize = 44.sp)
+                        "IMAGE" -> MediaBubbleImage(attachment, onDownload)
+                        "VIDEO" -> MediaBubbleImage(attachment, onDownload, label = "🎥 Video")
+                        "AUDIO" -> MediaBubbleAudio(attachment, onDownload)
                         "LOCATION" -> Text("📍 Location shared", style = MaterialTheme.typography.bodyMedium)
                         "CONTACT" -> Text("👤 Contact card", style = MaterialTheme.typography.bodyMedium)
-                        "FILE" -> Text("📄 Document", style = MaterialTheme.typography.bodyMedium)
+                        "FILE" -> Text("📄 ${attachment?.remoteFileId?.takeLast(12) ?: "Document"}", style = MaterialTheme.typography.bodyMedium)
                         else -> Text(message.body ?: "", style = MaterialTheme.typography.bodyLarge)
                     }
                 }
@@ -437,12 +480,14 @@ private fun MessageActionsSheet(
 private fun AttachmentSheet(
     onDismiss: () -> Unit,
     onPickFile: () -> Unit,
+    onPickStickers: () -> Unit,
     onSendLocation: () -> Unit,
     onSendContact: () -> Unit,
 ) {
     androidx.compose.material3.ModalBottomSheet(onDismissRequest = onDismiss) {
         Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
             Text("Attach", style = MaterialTheme.typography.titleMedium)
+            DropdownMenuItem(text = { Text("🎨 Stickers & GIFs") }, onClick = onPickStickers)
             DropdownMenuItem(text = { Text("📄 Document or media") }, onClick = onPickFile)
             DropdownMenuItem(text = { Text("📍 Location") }, onClick = onSendLocation)
             DropdownMenuItem(text = { Text("👤 Contact") }, onClick = onSendContact)
@@ -485,6 +530,107 @@ private fun ForwardDialog(
             androidx.compose.material3.TextButton(onClick = onDismiss) { Text("Cancel") }
         },
     )
+}
+
+/** Photo/video bubble body: downloaded media renders inline, remote offers one-tap fetch. */
+@Composable
+private fun MediaBubbleImage(
+    attachment: com.ara.core.db.entity.AttachmentEntity?,
+    onDownload: (com.ara.core.db.entity.AttachmentEntity) -> Unit,
+    label: String = "📷 Photo",
+) {
+    val local = attachment?.localPath
+    if (local != null && java.io.File(local).exists()) {
+        coil.compose.AsyncImage(
+            model = java.io.File(local),
+            contentDescription = label,
+            modifier = Modifier.fillMaxWidth().heightIn(max = 260.dp),
+            contentScale = ContentScale.Crop,
+        )
+    } else if (attachment != null) {
+        TextButton(onClick = { onDownload(attachment) }) { Text("⬇ $label") }
+    } else {
+        Text(label, style = MaterialTheme.typography.bodyMedium)
+    }
+}
+
+@Composable
+private fun MediaBubbleAudio(
+    attachment: com.ara.core.db.entity.AttachmentEntity?,
+    onDownload: (com.ara.core.db.entity.AttachmentEntity) -> Unit,
+) {
+    if (attachment != null) {
+        TextButton(onClick = { onDownload(attachment) }) { Text("🎙 Voice note · tap to load") }
+    } else {
+        Text("🎙 Voice note", style = MaterialTheme.typography.bodyMedium)
+    }
+}
+
+/** §2 Stickers — local emoji sticker pack; GIFs ride the normal file path. */
+@OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
+@Composable
+private fun StickerSheet(onDismiss: () -> Unit, onPick: (String) -> Unit) {
+    androidx.compose.material3.ModalBottomSheet(onDismissRequest = onDismiss) {
+        val stickers = remember {
+            listOf(
+                "😀", "😂", "🥹", "😍", "🤩", "😎", "🤔", "😴", "🥳", "😭", "😡", "🤯",
+                "👍", "🙏", "👏", "💪", "🤝", "🫡", "🔥", "✨", "🎉", "❤️", "💔", "🚀",
+                "🌟", "🍕", "☕", "🏆", "🎯", "💡", "🦄", "🐱", "🐶", "🌈", "🌊", "🌸",
+            )
+        }
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(6),
+            modifier = Modifier.fillMaxWidth().padding(12.dp).heightIn(max = 300.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            gridItems(stickers) { sticker ->
+                Text(
+                    sticker,
+                    fontSize = 34.sp,
+                    modifier = Modifier.clickable { onPick(sticker) }.padding(4.dp),
+                )
+            }
+        }
+        androidx.compose.foundation.layout.Spacer(Modifier.padding(24.dp))
+    }
+}
+
+/** §2 In-chat media viewer: fullscreen image or Media3 playback. */
+@Composable
+private fun MediaViewerDialog(path: String, mime: String, onDismiss: () -> Unit) {
+    val context = LocalContext.current
+    Dialog(onDismissRequest = onDismiss, properties = DialogProperties(usePlatformDefaultWidth = false)) {
+        Box(modifier = Modifier.fillMaxSize().background(Color.Black)) {
+            if (mime.startsWith("image/") || mime == "IMAGE") {
+                coil.compose.AsyncImage(
+                    model = java.io.File(path),
+                    contentDescription = "Media viewer",
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Fit,
+                )
+            } else {
+                val player = remember(path) {
+                    androidx.media3.exoplayer.ExoPlayer.Builder(context).build().apply {
+                        setMediaItem(androidx.media3.common.MediaItem.fromUri(android.net.Uri.fromFile(java.io.File(path))))
+                        prepare()
+                        playWhenReady = true
+                    }
+                }
+                AndroidView(
+                    factory = { ctx -> androidx.media3.ui.PlayerView(ctx).apply { this.player = player } },
+                    modifier = Modifier.fillMaxSize(),
+                )
+                androidx.compose.runtime.DisposableEffect(Unit) {
+                    onDispose { player.release() }
+                }
+            }
+            androidx.compose.material3.TextButton(
+                onClick = onDismiss,
+                modifier = Modifier.align(Alignment.TopEnd).padding(16.dp),
+            ) { Text("✕", color = Color.White) }
+        }
+    }
 }
 
 private fun describeTimer(seconds: Long): String = when (seconds) {

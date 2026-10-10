@@ -46,6 +46,10 @@ sealed class ChatPayload {
         val contactAraId: String? = null,
     ) : ChatPayload()
 
+    @Serializable
+    @SerialName("sticker")
+    data class Sticker(val emoji: String) : ChatPayload()
+
     /** Sender-key distribution for groups, tunneled through a pairwise 1:1 session. */
     @Serializable
     @SerialName("skd")

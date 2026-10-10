@@ -346,12 +346,14 @@ class ChatRepository @Inject constructor(
 
     private fun typeOf(payload: ChatPayload): String = when (payload) {
         is ChatPayload.Text -> "TEXT"
+        is ChatPayload.Sticker -> "STICKER"
         is ChatPayload.Media -> payload.mediaType
         else -> "SYSTEM"
     }
 
     private fun bodyOf(payload: ChatPayload): String? = when (payload) {
         is ChatPayload.Text -> payload.body
+        is ChatPayload.Sticker -> payload.emoji
         is ChatPayload.Media -> payload.caption
         else -> null
     }

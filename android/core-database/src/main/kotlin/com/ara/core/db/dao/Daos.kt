@@ -171,6 +171,9 @@ interface AttachmentDao {
     @Query("SELECT * FROM attachments WHERE chatId IN (:chatIds) AND localPath IS NOT NULL AND mimeType LIKE :mimePrefix || '%'")
     suspend fun mediaForChats(chatIds: List<String>, mimePrefix: String): List<AttachmentEntity>
 
+    @Query("SELECT * FROM attachments WHERE chatId = :chatId")
+    fun observeForChat(chatId: String): Flow<List<AttachmentEntity>>
+
     @Query("DELETE FROM attachments WHERE id = :id")
     suspend fun delete(id: String)
 }

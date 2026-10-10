@@ -21,5 +21,6 @@ class AraApplication : Application(), Configuration.Provider {
     override fun onCreate() {
         super.onCreate()
         incomingProcessor.start()
+        com.ara.app.work.WorkScheduler.scheduleAll(this)
     }
 }

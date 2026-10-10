@@ -98,6 +98,7 @@ class CallManager @Inject constructor(
     private var governor = LowBandwidthGovernor { kbps -> applyMaxBitrate(kbps) }
     private var statsJob: Job? = null
     private var currentCallId: String = ""
+    private var incomingTimeoutJob: Job? = null""
 
     fun start() {
         appScope.launch {
@@ -197,6 +198,17 @@ class CallManager @Inject constructor(
             isVideo = event.isVideo,
         )
         scope.launch { signaling.send(SignalingOut.CallRinging(callId = event.callId, to = event.from)) }
+
+        // Unanswered calls ring for 30s, then become MISSED (call log + decline to peer).
+        incomingTimeoutJob?.cancel()
+        incomingTimeoutJob = scope.launch {
+            delay(30_000)
+            val s = _state.value
+            if (s.state == CallState.INCOMING && s.callId == event.callId) {
+                signaling.send(SignalingOut.CallDecline(callId = event.callId, to = event.from))
+                finishCall("MISSED")
+            }
+        }
     }
 
     private fun onAnswer(event: SignalingIn.CallAnswer) {
@@ -354,6 +366,7 @@ class CallManager @Inject constructor(
 
     private fun finishCall(status: String) {
         statsJob?.cancel()
+        incomingTimeoutJob?.cancel()
         runCatching {
             videoCapturer?.stopCapture()
         }
@@ -372,10 +385,18 @@ class CallManager @Inject constructor(
         governor.reset()
 
         val s = _state.value
-        if (s.state == CallState.IN_CALL && s.startedAt > 0) {
-            logWithDuration(s, status)
-        } else if (s.state == CallState.OUTGOING && status != "COMPLETED") {
-            logCall(peerId = s.peerId, isVideo = s.isVideo, direction = "OUTGOING", status = status)
+        when {
+            s.state == CallState.IN_CALL && s.startedAt > 0 -> logWithDuration(s, status)
+            s.state == CallState.OUTGOING ->
+                logCall(peerId = s.peerId, isVideo = s.isVideo, direction = "OUTGOING", status = status)
+            s.state == CallState.INCOMING ->
+                logCall(
+                    peerId = s.peerId,
+                    isVideo = s.isVideo,
+                    direction = if (status == "MISSED") "MISSED" else "INCOMING",
+                    status = status,
+                )
+            else -> Unit
         }
         _state.value = CallUiState(state = CallState.ENDED, callId = s.callId, peerId = s.peerId, isVideo = s.isVideo)
     }

@@ -116,6 +116,25 @@ class IncomingProcessor @Inject constructor(
                 chatDao.bumpUnread(chatId, 1)
                 signaling.send(SignalingOut.AckDelivered(to = sender, messageId = ackRef))
             }
+            is ChatPayload.Sticker -> {
+                ensureChat(chatId, sender)
+                val messageId = UUID.randomUUID().toString()
+                messageDao.insert(
+                    MessageEntity(
+                        id = messageId,
+                        chatId = chatId,
+                        senderId = sender,
+                        type = "STICKER",
+                        body = payload.emoji,
+                        timestamp = now,
+                        status = "RECEIVED",
+                        expireAt = disappearingDeadline(chatId, now),
+                    )
+                )
+                chatDao.touchLastMessage(chatId, "${payload.emoji} Sticker", now)
+                chatDao.bumpUnread(chatId, 1)
+                signaling.send(SignalingOut.AckDelivered(to = sender, messageId = ackRef))
+            }
             is ChatPayload.Edit -> {
                 val target = messageDao.byId(payload.targetId)
                 if (target != null && target.senderId == sender) {

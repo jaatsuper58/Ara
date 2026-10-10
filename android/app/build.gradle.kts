@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -6,6 +8,17 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
 }
+
+// Release signing (Phase 11): credentials come from local.properties or CI
+// secrets — the keystore and its passwords are NEVER committed.
+val keystoreProperties = Properties().apply {
+    val localProps = rootProject.file("../local.properties")
+    if (localProps.exists()) localProps.inputStream().use { load(it) }
+}
+val releaseKeystorePath: String? =
+    System.getenv("ARA_KEYSTORE_PATH") ?: keystoreProperties.getProperty("ara.keystore.path")
+val releaseKeystorePassword: String? =
+    System.getenv("ARA_KEYSTORE_PASSWORD") ?: keystoreProperties.getProperty("ara.keystore.password")
 
 android {
     namespace = "com.ara.app"
@@ -20,25 +33,13 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    // Phase 11: signing wired from local.properties / CI secrets — the keystore
-    // and its passwords are NEVER committed (see docs/release.md).
     signingConfigs {
         create("release") {
-            val keystorePath = System.getenv("ARA_KEYSTORE_PATH")
-                ?: (project.rootProject.file("../local.properties").takeIf { it.exists() }?.let { file ->
-                    val props = java.util.Properties().apply { file.inputStream().use { load(it) } }
-                    props.getProperty("ara.keystore.path")
-                })
-            val keystorePass = System.getenv("ARA_KEYSTORE_PASSWORD")
-                ?: (project.rootProject.file("../local.properties").takeIf { it.exists() }?.let { file ->
-                    val props = java.util.Properties().apply { file.inputStream().use { load(it) } }
-                    props.getProperty("ara.keystore.password")
-                })
-            if (keystorePath != null && keystorePass != null) {
-                storeFile = file(keystorePath)
-                storePassword = keystorePass
+            if (releaseKeystorePath != null && releaseKeystorePassword != null) {
+                storeFile = file(releaseKeystorePath)
+                storePassword = releaseKeystorePassword
                 keyAlias = System.getenv("ARA_KEY_ALIAS") ?: "ara"
-                keyPassword = System.getenv("ARA_KEY_PASSWORD") ?: keystorePass
+                keyPassword = System.getenv("ARA_KEY_PASSWORD") ?: releaseKeystorePassword
             }
         }
     }

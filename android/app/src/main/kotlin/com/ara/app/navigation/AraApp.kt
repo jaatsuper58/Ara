@@ -30,6 +30,7 @@ import com.ara.feature.calls.ui.CallsScreen
 import com.ara.feature.calls.ui.InCallScreen
 import com.ara.feature.chat.ui.ChatListScreen
 import com.ara.feature.chat.ui.ChatThreadScreen
+import com.ara.feature.chat.ui.GroupInfoScreen
 import com.ara.feature.contacts.ui.ContactsScreen
 import com.ara.feature.settings.ui.SettingsScreen
 
@@ -41,6 +42,9 @@ sealed class Destination(val route: String) {
     data object Settings : Destination("settings")
     data object Thread : Destination("thread/{chatId}") {
         fun of(chatId: String) = "thread/$chatId"
+    }
+    data object GroupInfo : Destination("group/{chatId}") {
+        fun of(chatId: String) = "group/$chatId"
     }
     data object InCall : Destination("incall")
     data object SafetyNumber : Destination("safety")
@@ -154,6 +158,17 @@ fun AraApp() {
                             accountViewModel.placeCall(peer, video)
                             navController.navigate(Destination.InCall.route)
                         }
+                    },
+                    onOpenGroup = { chatId ->
+                        navController.navigate(Destination.GroupInfo.of(chatId))
+                    },
+                )
+            }
+            composable(Destination.GroupInfo.route) {
+                GroupInfoScreen(
+                    onBack = { navController.popBackStack() },
+                    onLeft = {
+                        navController.popBackStack(Destination.Chats.route, inclusive = false)
                     },
                 )
             }
