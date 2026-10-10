@@ -12,6 +12,7 @@ import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
 import kotlinx.serialization.encodeToString
+import javax.inject.Inject
 
 /** Attaches the bearer token to API calls (skipped for login/account endpoints). */
 class AuthInterceptor @Inject constructor(

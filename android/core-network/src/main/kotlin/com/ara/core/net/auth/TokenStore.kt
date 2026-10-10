@@ -29,6 +29,7 @@ class TokenStore @Inject constructor(
         val DEVICE_ID = stringPreferencesKey("device_id")
         val ACCESS_TOKEN = stringPreferencesKey("access_token")
         val REFRESH_TOKEN = stringPreferencesKey("refresh_token")
+        val PUSH_TOKEN = stringPreferencesKey("push_token")
     }
 
     override val account: Flow<AraAccount?> = context.araDataStore.data.map { prefs ->

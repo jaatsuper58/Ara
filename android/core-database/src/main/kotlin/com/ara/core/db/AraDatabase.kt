@@ -36,6 +36,7 @@ import com.ara.core.db.entity.SenderKeyEntity
         RemoteIdentityEntity::class,
         SenderKeyEntity::class,
         SenderKeyCoverageEntity::class,
+        GroupMemberEntity::class,
     ],
     version = 1,
     exportSchema = false,

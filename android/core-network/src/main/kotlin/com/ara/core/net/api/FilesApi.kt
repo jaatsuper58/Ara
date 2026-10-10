@@ -1,5 +1,6 @@
 package com.ara.core.net.api
 
+import kotlinx.serialization.Serializable
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.http.Body
