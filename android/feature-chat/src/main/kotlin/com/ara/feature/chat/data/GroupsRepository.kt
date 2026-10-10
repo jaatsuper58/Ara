@@ -41,8 +41,7 @@ class GroupsRepository @Inject constructor(
                     groupsApi.addMembers(dto.id, AddMembersRequest(memberIds.filter { it != me }))
                 }
                 // Re-fetch to get the authoritative member list + roles.
-                val full = groupsApi.group(dto.id)
-                persistGroup(full)
+                persistGroup(groupsApi.group(dto.id), me)
                 AppResult.Success(chatIdFor(dto.id))
             } catch (t: Throwable) {
                 AppResult.Failure(AppError.network(t))
@@ -51,8 +50,9 @@ class GroupsRepository @Inject constructor(
 
     suspend fun refresh(chatId: String): AppResult<Unit> = withContext(Dispatchers.IO) {
         val serverId = chatId.removePrefix("grp_")
+        val me = accountRepository.current()?.araId ?: "me"
         try {
-            persistGroup(groupsApi.group(serverId))
+            persistGroup(groupsApi.group(serverId), me)
             AppResult.Success(Unit)
         } catch (t: Throwable) {
             AppResult.Failure(AppError.network(t))
@@ -61,8 +61,9 @@ class GroupsRepository @Inject constructor(
 
     suspend fun addMember(chatId: String, araId: String): AppResult<Unit> = withContext(Dispatchers.IO) {
         val serverId = chatId.removePrefix("grp_")
+        val me = accountRepository.current()?.araId ?: "me"
         try {
-            persistGroup(groupsApi.addMembers(serverId, AddMembersRequest(listOf(araId))))
+            persistGroup(groupsApi.addMembers(serverId, AddMembersRequest(listOf(araId))), me)
             AppResult.Success(Unit)
         } catch (t: Throwable) {
             AppResult.Failure(AppError.network(t))
@@ -71,8 +72,9 @@ class GroupsRepository @Inject constructor(
 
     suspend fun removeMember(chatId: String, araId: String): AppResult<Unit> = withContext(Dispatchers.IO) {
         val serverId = chatId.removePrefix("grp_")
+        val me = accountRepository.current()?.araId ?: "me"
         try {
-            persistGroup(groupsApi.removeMember(serverId, araId))
+            persistGroup(groupsApi.removeMember(serverId, araId), me)
             AppResult.Success(Unit)
         } catch (t: Throwable) {
             AppResult.Failure(AppError.network(t))
